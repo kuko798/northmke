@@ -1,0 +1,92 @@
+/**
+ * Central campaign configuration — domains, contact, donations, socials.
+ * Set NEXT_PUBLIC_DONATION_URL to your ActBlue, Anedot, Stripe Checkout, or PayPal link when ready.
+ */
+export const siteUrl = "https://northmke.com";
+
+/** Official campaign logo — transparent PNG (`public/images/campaign-logo.png`). */
+export const logo = {
+  src: "/images/campaign-logo.png",
+  width: 560,
+  height: 446,
+} as const;
+
+/**
+ * Home hero photography — Unsplash License (free use, including commercial).
+ * Milwaukee skyline and Lake Michigan (metro / region).
+ */
+export const heroPhoto = {
+  src: "/images/hero-milwaukee.jpg",
+  alt: "Sunrise over the Milwaukee skyline and Lake Michigan",
+  photographer: "Tom Barrett",
+  photographerUrl: "https://unsplash.com/@wistomsin",
+  photoPageUrl: "https://unsplash.com/photos/milwaukees-skyline-is-visible-with-the-lake-WvMjogIRHK4",
+  licenseName: "Unsplash License",
+  licenseUrl: "https://unsplash.com/license",
+} as const;
+
+export const brand = {
+  name: "NORTHMKE",
+  nameWithTm: "NORTHMKE™",
+  tagline: "Nathan Coe for North Milwaukee",
+  candidate: "Nathan Coe",
+  domain: "northmke.com",
+  colors: {
+    navy: "#0a1f3c",
+    navyDark: "#061226",
+    gold: "#c9a227",
+    goldLight: "#e3cf7a",
+    black: "#0a0a0a",
+  },
+} as const;
+
+export const disclaimer = "Paid for by NorthMKE.";
+
+export const emails = {
+  info: "info@northmke.com",
+  press: "press@northmke.com",
+  volunteer: "volunteer@northmke.com",
+} as const;
+
+/** Preset donation amounts in USD (whole dollars). */
+export const donationPresets = [10, 25, 50, 100, 250] as const;
+
+/**
+ * When set (e.g. in Vercel env), "Donate Securely" will open this URL.
+ * Many platforms accept amount via query string — adjust `buildDonationHref` in DonateCard if needed.
+ */
+export const donationCheckoutUrl =
+  typeof process !== "undefined" && process.env.NEXT_PUBLIC_DONATION_URL
+    ? process.env.NEXT_PUBLIC_DONATION_URL
+    : "";
+
+/** Append ?amount= for processors that accept it; falls back to base URL. */
+export function getDonationUrl(amountDollars: number): string | null {
+  if (!donationCheckoutUrl || amountDollars <= 0) return null;
+  try {
+    const u = new URL(donationCheckoutUrl);
+    u.searchParams.set("amount", String(amountDollars));
+    return u.toString();
+  } catch {
+    return donationCheckoutUrl;
+  }
+}
+
+export const socials = [
+  { label: "Facebook", handle: "@NORTHMKE", href: "https://www.facebook.com/NORTHMKE" },
+  { label: "Instagram", handle: "@NORTHMKE", href: "https://www.instagram.com/NORTHMKE" },
+  { label: "X", handle: "@NORTHMKE", href: "https://x.com/NORTHMKE" },
+  { label: "TikTok", handle: "@NORTHMKE", href: "https://www.tiktok.com/@NORTHMKE" },
+  { label: "YouTube", handle: "NORTHMKE", href: "https://www.youtube.com/@NORTHMKE" },
+  { label: "LinkedIn", handle: "NorthMKE", href: "https://www.linkedin.com/company/northmke" },
+  { label: "Threads", handle: "@NORTHMKE", href: "https://www.threads.net/@NORTHMKE" },
+] as const;
+
+export const navigation = [
+  { href: "/", label: "Home" },
+  { href: "/about", label: "Meet Nathan" },
+  { href: "/issues", label: "Issues" },
+  { href: "/volunteer", label: "Volunteer" },
+  { href: "/donate", label: "Donate" },
+  { href: "/contact", label: "Contact" },
+] as const;
