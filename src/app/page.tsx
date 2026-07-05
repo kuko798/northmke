@@ -1,10 +1,13 @@
 import Link from "next/link";
 import { Button } from "@/components/Button";
+import { DonateCard } from "@/components/DonateCard";
 import { Hero } from "@/components/Hero";
 import { IssueCard } from "@/components/IssueCard";
+import { MerchCard } from "@/components/MerchCard";
+import { NewsletterForm } from "@/components/NewsletterForm";
 import { Reveal } from "@/components/Reveal";
 import { brand } from "@/lib/config";
-import { featuredPillars, mission } from "@/lib/content";
+import { featuredPillars, merchProducts, mission } from "@/lib/content";
 
 function HomeIcon() {
   return (
@@ -159,6 +162,81 @@ export default function HomePage() {
                 </Button>
               </div>
             </div>
+          </div>
+        </section>
+      </Reveal>
+
+      <Reveal delayMs={100}>
+        <section className="border-t border-brand-navy/10 bg-white py-14 sm:py-16">
+          <div className="mx-auto max-w-6xl px-4 sm:px-6 lg:px-8">
+            <div className="flex flex-col gap-4 sm:flex-row sm:items-end sm:justify-between">
+              <div>
+                <p className="text-xs font-semibold uppercase tracking-[0.2em] text-brand-gold">Shop</p>
+                <h2 className="mt-2 font-serif text-3xl font-bold text-brand-navy">NorthMKE merch</h2>
+                <p className="mt-2 max-w-2xl text-sm text-brand-black/75">
+                  Official apparel and accessories — rep the movement and support community work across North Milwaukee.
+                </p>
+              </div>
+              <Button href="/shop" variant="ghost" className="self-start sm:self-auto">
+                View all merch
+              </Button>
+            </div>
+            <div className="mt-10 grid gap-6 sm:grid-cols-2 lg:grid-cols-4">
+              {merchProducts.map((product, i) => (
+                <Reveal key={product.id} delayMs={i * 60}>
+                  <MerchCard product={product} />
+                </Reveal>
+              ))}
+            </div>
+          </div>
+        </section>
+      </Reveal>
+
+      <Reveal delayMs={110}>
+        <section className="border-t border-brand-navy/10 bg-surface py-14 sm:py-16">
+          <div className="mx-auto max-w-6xl px-4 sm:px-6 lg:px-8">
+            <div className="grid gap-10 lg:grid-cols-2 lg:items-center">
+              <div>
+                <p className="text-xs font-semibold uppercase tracking-[0.2em] text-brand-gold">Newsletter</p>
+                <h2 className="mt-2 font-serif text-3xl font-bold text-brand-navy">Stay in the loop</h2>
+                <p className="mt-3 max-w-xl text-sm leading-relaxed text-brand-black/75">
+                  Subscribe for community updates, event announcements, volunteer opportunities, and platform news
+                  from North Milwaukee.
+                </p>
+              </div>
+              <div className="rounded-2xl border border-brand-navy/10 bg-white p-6 shadow-sm sm:p-8">
+                <NewsletterForm compact />
+                <p className="mt-4 text-xs text-brand-black/55">
+                  Prefer the full signup form?{" "}
+                  <Link href="/newsletter" className="font-medium text-brand-navy underline-offset-2 hover:underline">
+                    Go to newsletter page
+                  </Link>
+                </p>
+              </div>
+            </div>
+          </div>
+        </section>
+      </Reveal>
+
+      <Reveal delayMs={120}>
+        <section className="border-t border-brand-navy/10 bg-gradient-to-b from-white to-surface py-14 sm:py-16">
+          <div className="mx-auto max-w-6xl px-4 sm:px-6 lg:px-8">
+            <div className="mb-10 max-w-2xl">
+              <p className="text-xs font-semibold uppercase tracking-[0.2em] text-brand-gold">Donate</p>
+              <h2 className="mt-2 font-serif text-3xl font-bold text-brand-navy">Invest in North Milwaukee</h2>
+              <p className="mt-3 text-sm leading-relaxed text-brand-black/75">
+                Your contribution helps fund community outreach, neighborhood events, and the digital tools that keep
+                NorthMKE connected to residents across the district.
+              </p>
+            </div>
+            <div className="mx-auto max-w-xl">
+              <DonateCard />
+            </div>
+            <p className="mt-6 text-center text-sm text-brand-black/60">
+              <Link href="/donate" className="font-medium text-brand-navy underline-offset-2 hover:underline">
+                Open full donate page
+              </Link>
+            </p>
           </div>
         </section>
       </Reveal>

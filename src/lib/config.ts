@@ -14,13 +14,13 @@ export const campaignPhase: CampaignPhase =
 
 export const phaseConfig = {
   awareness: {
-    showDonate: false,
+    showDonate: true,
     disclaimer: null as string | null,
     siteDescription:
       "Community development and civic engagement platform for North Milwaukee.",
   },
   persuasion: {
-    showDonate: false,
+    showDonate: true,
     disclaimer: "Paid for by NorthMKE.",
     siteDescription:
       "Community development and civic engagement platform for North Milwaukee.",
@@ -90,6 +90,12 @@ export const donationCheckoutUrl =
     ? process.env.NEXT_PUBLIC_DONATION_URL
     : "";
 
+/** External merch storefront (Shopify, Printful, etc.). When set, product CTAs open this URL. */
+export const shopCheckoutUrl =
+  typeof process !== "undefined" && process.env.NEXT_PUBLIC_SHOP_URL
+    ? process.env.NEXT_PUBLIC_SHOP_URL
+    : "";
+
 /** Append ?amount= for processors that accept it; falls back to base URL. */
 export function getDonationUrl(amountDollars: number): string | null {
   if (!donationCheckoutUrl || amountDollars <= 0) return null;
@@ -116,6 +122,7 @@ const baseNavigation = [
   { href: "/", label: "Home" },
   { href: "/about", label: "About" },
   { href: "/platform", label: "Platform" },
+  { href: "/shop", label: "Shop" },
   { href: "/volunteer", label: "Volunteer" },
   { href: "/contact", label: "Contact" },
 ] as const;

@@ -178,3 +178,42 @@ export const digitalFeatures = [
 
 /** Pillars shown as home-page teasers. */
 export const featuredPillars = pillars.filter((p) => p.featured);
+
+export type MerchProduct = {
+  id: string;
+  name: string;
+  description: string;
+  price: number;
+  category: string;
+};
+
+export const merchProducts: readonly MerchProduct[] = [
+  {
+    id: "logo-tee",
+    name: "NorthMKE Logo Tee",
+    description: "Soft cotton tee with the NorthMKE mark — navy and gold.",
+    price: 28,
+    category: "Apparel",
+  },
+  {
+    id: "hoodie",
+    name: "NorthMKE Hoodie",
+    description: "Midweight fleece hoodie for Milwaukee winters.",
+    price: 55,
+    category: "Apparel",
+  },
+  {
+    id: "cap",
+    name: "NorthMKE Cap",
+    description: "Structured cap with embroidered logo.",
+    price: 25,
+    category: "Accessories",
+  },
+  {
+    id: "tote",
+    name: "NorthMKE Tote Bag",
+    description: "Canvas tote — perfect for farmers markets and community events.",
+    price: 18,
+    category: "Accessories",
+  },
+] as const;
