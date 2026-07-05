@@ -5,7 +5,7 @@ import { brand } from "@/lib/config";
 
 export const metadata: Metadata = {
   title: "Volunteer",
-  description: `Join ${brand.nameWithTm} — door knocks, phone banks, events, and more.`,
+  description: `Join ${brand.nameWithTm} — community events, outreach, and civic engagement.`,
 };
 
 export default function VolunteerPage() {
@@ -13,8 +13,8 @@ export default function VolunteerPage() {
     <div>
       <PageHero
         eyebrow="Volunteer"
-        title="Join the campaign"
-        description="Tell us how you would like to help. A member of our team will follow up with training, shifts, and everything you need to make an impact."
+        title="Get involved with NorthMKE"
+        description="Tell us how you would like to help. A member of our team will follow up with opportunities, events, and everything you need to make an impact."
       />
 
       <section className="bg-surface py-12 sm:py-16">

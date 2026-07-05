@@ -50,7 +50,7 @@ export function CampaignLogo({
     >
       <Image
         src={logo.src}
-        alt={`${brand.name} — North Milwaukee campaign logo`}
+        alt={`${brand.name} — North Milwaukee platform logo`}
         width={logo.width}
         height={logo.height}
         priority={priority}

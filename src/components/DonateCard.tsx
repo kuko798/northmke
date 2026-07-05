@@ -33,7 +33,7 @@ export function DonateCard() {
 
   return (
     <div className="rounded-3xl border border-white/60 bg-white/85 p-6 shadow-[0_20px_50px_-28px_rgba(10,31,60,0.35)] ring-1 ring-brand-navy/[0.06] backdrop-blur-2xl transition-[box-shadow,transform] duration-300 hover:-translate-y-0.5 hover:shadow-[0_28px_60px_-26px_rgba(10,31,60,0.4)] sm:p-8">
-      <h2 className="font-serif text-2xl font-bold text-brand-navy">Support the campaign</h2>
+      <h2 className="font-serif text-2xl font-bold text-brand-navy">Support NorthMKE</h2>
       <p className="mt-2 text-sm text-brand-black/75">
         Select an amount, then continue to our secure processor. Connect{" "}
         <code className="rounded bg-brand-navy/5 px-1 text-xs">NEXT_PUBLIC_DONATION_URL</code> in
@@ -128,9 +128,11 @@ export function DonateCard() {
         ) : null}
       </div>
 
-      <p className="mt-8 border-t border-brand-navy/10 pt-6 text-xs font-medium uppercase tracking-wide text-brand-black/70">
-        {disclaimer}
-      </p>
+      {disclaimer ? (
+        <p className="mt-8 border-t border-brand-navy/10 pt-6 text-xs font-medium uppercase tracking-wide text-brand-black/70">
+          {disclaimer}
+        </p>
+      ) : null}
     </div>
   );
 }

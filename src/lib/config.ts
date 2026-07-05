@@ -1,10 +1,41 @@
 /**
- * Central campaign configuration — domains, contact, donations, socials.
+ * Central platform configuration — domains, contact, donations, socials, campaign phase.
  * Set NEXT_PUBLIC_DONATION_URL to your ActBlue, Anedot, Stripe Checkout, or PayPal link when ready.
+ * Set NEXT_PUBLIC_CAMPAIGN_PHASE to control awareness vs. campaign features.
  */
 export const siteUrl = "https://northmke.com";
 
-/** Official campaign logo — transparent PNG (`public/images/campaign-logo.png`). */
+export type CampaignPhase = "awareness" | "persuasion" | "campaign";
+
+export const campaignPhase: CampaignPhase =
+  (typeof process !== "undefined" &&
+    (process.env.NEXT_PUBLIC_CAMPAIGN_PHASE as CampaignPhase | undefined)) ||
+  "awareness";
+
+export const phaseConfig = {
+  awareness: {
+    showDonate: false,
+    disclaimer: null as string | null,
+    siteDescription:
+      "Community development and civic engagement platform for North Milwaukee.",
+  },
+  persuasion: {
+    showDonate: false,
+    disclaimer: "Paid for by NorthMKE.",
+    siteDescription:
+      "Community development and civic engagement platform for North Milwaukee.",
+  },
+  campaign: {
+    showDonate: true,
+    disclaimer: "Paid for by NorthMKE.",
+    siteDescription:
+      "Community development and civic engagement platform for North Milwaukee.",
+  },
+} as const;
+
+export const activePhase = phaseConfig[campaignPhase];
+
+/** Official platform logo — transparent PNG (`public/images/campaign-logo.png`). */
 export const logo = {
   src: "/images/campaign-logo.png",
   width: 560,
@@ -26,10 +57,9 @@ export const heroPhoto = {
 } as const;
 
 export const brand = {
-  name: "NORTHMKE",
-  nameWithTm: "NORTHMKE™",
-  tagline: "Nathan Coe for North Milwaukee",
-  candidate: "Nathan Coe",
+  name: "NorthMKE",
+  nameWithTm: "NorthMKE™",
+  tagline: "Building Wealth, Health, Safety, and Opportunity Across North Milwaukee.",
   domain: "northmke.com",
   colors: {
     navy: "#0a1f3c",
@@ -40,7 +70,7 @@ export const brand = {
   },
 } as const;
 
-export const disclaimer = "Paid for by NorthMKE.";
+export const disclaimer = activePhase.disclaimer;
 
 export const emails = {
   info: "info@northmke.com",
@@ -82,11 +112,19 @@ export const socials = [
   { label: "Threads", handle: "@NORTHMKE", href: "https://www.threads.net/@NORTHMKE" },
 ] as const;
 
-export const navigation = [
+const baseNavigation = [
   { href: "/", label: "Home" },
-  { href: "/about", label: "Meet Nathan" },
-  { href: "/issues", label: "Issues" },
+  { href: "/about", label: "About" },
+  { href: "/platform", label: "Platform" },
   { href: "/volunteer", label: "Volunteer" },
-  { href: "/donate", label: "Donate" },
   { href: "/contact", label: "Contact" },
 ] as const;
+
+const donateNavItem = { href: "/donate", label: "Donate" } as const;
+
+/** Navigation items filtered by current campaign phase. */
+export function getNavigation() {
+  return activePhase.showDonate ? [...baseNavigation, donateNavItem] : [...baseNavigation];
+}
+
+export const navigation = getNavigation();
