@@ -1,188 +1,182 @@
 import type { Metadata } from "next";
-import Link from "next/link";
 import { Button } from "@/components/Button";
 import { PageHero } from "@/components/PageHero";
-import { PillarDetail } from "@/components/PillarDetail";
-import { PlatformPillarCard } from "@/components/PlatformPillarCard";
-import { Reveal } from "@/components/Reveal";
-import { brand } from "@/lib/config";
+import {
+  PlatformBlock,
+  PlatformChain,
+  PlatformSection,
+  PlatformToc,
+  PlatformVision,
+} from "@/components/PlatformLayout";
 import {
   digitalFeatures,
   holisticPlatformModel,
   longTermVision,
   mission,
   pillarDetails,
-  pillars,
   platformIdentity,
+  platformToc,
   strategicArguments,
 } from "@/lib/content";
-import { StrategicArgumentsSection } from "@/components/StrategicArgumentsSection";
 
 export const metadata: Metadata = {
   title: "Platform",
   description:
-    "NorthMKE strategic pillars — housing, women's economic mobility, public ROI, green infrastructure, safety, healthcare, senior support, and public safety reform.",
+    "NorthMKE platform — mission, strategic pillars, strategic arguments, digital features, and long-term vision for North Milwaukee.",
 };
 
 export default function PlatformPage() {
   return (
-    <div>
+    <div className="bg-white">
       <PageHero
         eyebrow="Platform"
-        title="NorthMKE Strategic Pillars"
+        title="NorthMKE Platform"
         description={platformIdentity.tagline}
         regionPhoto={false}
       />
 
-      {/* Mission */}
-      <section className="border-b border-brand-navy/10 bg-white py-12 sm:py-16">
-        <div className="mx-auto max-w-3xl px-4 text-center sm:px-6 lg:px-8">
-          <Reveal>
-            <p className="text-xs font-semibold uppercase tracking-[0.2em] text-brand-gold">Mission</p>
-            <h2 className="mt-3 font-serif text-2xl font-bold text-brand-navy sm:text-3xl">
-              {platformIdentity.name}
-            </h2>
-            <p className="mt-6 text-base leading-relaxed text-brand-black/85 sm:text-lg">{mission.summary}</p>
-            <p className="mt-5 text-base leading-relaxed text-brand-black/75">{mission.closing}</p>
-          </Reveal>
-        </div>
-      </section>
+      <div className="mx-auto max-w-6xl px-4 py-10 sm:px-6 lg:grid lg:grid-cols-[minmax(0,13rem)_1fr] lg:gap-12 lg:px-8 lg:py-14">
+        <aside className="mb-8 lg:sticky lg:top-28 lg:self-start">
+          <PlatformToc items={platformToc} />
+        </aside>
 
-      {/* Pillar overview */}
-      <section className="bg-surface py-12 sm:py-16">
-        <div className="mx-auto max-w-6xl px-4 sm:px-6 lg:px-8">
-          <Reveal>
-            <div className="max-w-2xl">
-              <p className="text-xs font-semibold uppercase tracking-[0.2em] text-brand-gold">Eight pillars</p>
-              <h2 className="mt-2 font-serif text-3xl font-bold text-brand-navy">A comprehensive platform for North Milwaukee</h2>
-              <p className="mt-3 text-sm leading-relaxed text-brand-black/75">
-                Housing investment, economic mobility, public accountability, safety, healthcare, senior support, green
-                infrastructure, and police district reform — each pillar reinforces the others.
-              </p>
-            </div>
-          </Reveal>
+        <div>
+          {/* Identity & Mission */}
+          <PlatformSection id="mission" title="Updated Platform Identity" subtitle={platformIdentity.name}>
+            <PlatformBlock
+              title="Tagline"
+              intro={`"${platformIdentity.tagline}"`}
+            />
+            <PlatformBlock title="Mission" intro={mission.summary} body={[mission.closing]} />
+          </PlatformSection>
 
-          <nav className="mt-8 flex flex-wrap gap-2" aria-label="Jump to pillar">
-            <Link
-              href="#strategic-arguments"
-              className="rounded-full border border-brand-gold/40 bg-brand-gold/10 px-3 py-1.5 text-xs font-medium text-brand-navy transition-colors hover:border-brand-gold hover:text-brand-gold"
-            >
-              Strategic arguments
-            </Link>
-            {pillars.map((pillar) => (
-              <Link
-                key={pillar.id}
-                href={`#${pillar.id}`}
-                className="rounded-full border border-brand-navy/15 bg-white px-3 py-1.5 text-xs font-medium text-brand-navy transition-colors hover:border-brand-gold/50 hover:text-brand-gold"
-              >
-                {pillar.emoji} {pillar.title.split("&")[0]?.trim() ?? pillar.title}
-              </Link>
+          {/* Strategic Pillars */}
+          <PlatformSection
+            id="strategic-pillars"
+            title="NorthMKE Strategic Pillars"
+            variant="muted"
+          >
+            {pillarDetails.map((pillar) => (
+              <div key={pillar.id} id={pillar.id} className="scroll-mt-28 border-t border-brand-navy/10 pt-10 first:border-t-0 first:pt-0">
+                <h3 className="font-serif text-xl font-bold text-brand-navy sm:text-2xl">{pillar.title}</h3>
+                <p className="mt-2 text-base font-medium text-brand-black/70">{pillar.tagline}</p>
+
+                <div className="mt-6 space-y-6">
+                  {pillar.blocks.map((block) => {
+                    const isRoi = block.title === "ROI Framework";
+                    if (!block.title && block.body) {
+                      return (
+                        <p key={block.body.slice(0, 40)} className="text-base leading-relaxed text-brand-black/85">
+                          {block.body}
+                        </p>
+                      );
+                    }
+                    if (block.title === "Focus Areas" && !block.intro && !block.items) {
+                      return null;
+                    }
+                    return (
+                      <div key={block.title || block.body?.slice(0, 40) || "block"}>
+                        <PlatformBlock
+                          title={block.title || undefined}
+                          intro={block.intro}
+                          body={block.body && !isRoi ? [block.body] : undefined}
+                          items={block.items}
+                        />
+                        {isRoi && block.body ? (
+                          <PlatformChain items={block.body.split("→").map((s) => s.trim())} />
+                        ) : null}
+                      </div>
+                    );
+                  })}
+                </div>
+
+                {pillar.vision ? <PlatformVision text={pillar.vision} /> : null}
+                {pillar.longTermVision ? (
+                  <div className="mt-6">
+                    <PlatformBlock title="Long-Term Vision" intro={pillar.longTermVision} />
+                  </div>
+                ) : null}
+              </div>
             ))}
-          </nav>
+          </PlatformSection>
 
-          <div className="mt-8 grid gap-5 sm:grid-cols-2 lg:grid-cols-4">
-            {pillars.map((pillar, i) => (
-              <Reveal key={pillar.id} delayMs={i * 50}>
-                <PlatformPillarCard pillar={pillar} index={i} />
-              </Reveal>
+          {/* Digital Platform Features */}
+          <PlatformSection id="digital-features" title="Digital Platform Features">
+            {digitalFeatures.map((feature) => (
+              <PlatformBlock key={feature.title} title={feature.title} intro={feature.intro} items={feature.items} />
             ))}
-          </div>
-        </div>
-      </section>
+          </PlatformSection>
 
-      {/* Full pillar deep-dives */}
-      {pillarDetails.map((pillar, i) => (
-        <PillarDetail key={pillar.id} {...pillar} index={i} />
-      ))}
+          {/* Long-Term Vision Statement */}
+          <PlatformSection
+            id="long-term-vision"
+            title="Long-Term Vision Statement"
+            variant="muted"
+          >
+            <p className="text-base leading-relaxed text-brand-black/85">{longTermVision}</p>
+          </PlatformSection>
 
-      <StrategicArgumentsSection
-        title={strategicArguments.title}
-        subtitle={strategicArguments.subtitle}
-        districtTagline={strategicArguments.districtTagline}
-        arguments={strategicArguments.arguments}
-      />
+          {/* Strategic Arguments */}
+          <PlatformSection
+            id="strategic-arguments"
+            title="Strategic Argument: Why the 7th District is the Launchpad for Milwaukee's Future"
+            subtitle={strategicArguments.districtTagline}
+            variant="muted"
+          >
+            {strategicArguments.arguments.map((arg) => (
+              <div key={arg.number} className="border-t border-brand-navy/10 pt-8 first:border-t-0 first:pt-0">
+                <h3 className="font-serif text-lg font-bold text-brand-navy sm:text-xl">
+                  {arg.number}. {arg.title}
+                </h3>
+                <div className="mt-4 space-y-4">
+                  {arg.paragraphs.map((p) => (
+                    <p key={p.slice(0, 50)} className="text-base leading-relaxed text-brand-black/85">
+                      {p}
+                    </p>
+                  ))}
+                  {arg.items ? <PlatformBlock items={arg.items} /> : null}
+                  {arg.rippleEffect ? (
+                    <PlatformBlock
+                      intro="Strategically investing in this group creates a ripple effect:"
+                      items={arg.rippleEffect}
+                    />
+                  ) : null}
+                  {arg.subsections?.map((sub, si) => (
+                    <PlatformBlock key={`${arg.number}-${si}`} title={sub.title || undefined} intro={sub.body} items={sub.items} />
+                  ))}
+                  {arg.closing ? (
+                    <p className="border-l-4 border-brand-gold pl-4 text-base font-medium leading-relaxed text-brand-navy">
+                      {arg.closing}
+                    </p>
+                  ) : null}
+                </div>
+              </div>
+            ))}
+          </PlatformSection>
 
-      {/* Holistic model */}
-      <section className="border-t border-brand-navy/10 bg-brand-navy py-14 sm:py-16">
-        <div className="mx-auto max-w-4xl px-4 sm:px-6 lg:px-8">
-          <Reveal>
-            <p className="text-xs font-semibold uppercase tracking-[0.2em] text-brand-gold">Holistic model</p>
-            <h2 className="mt-2 font-serif text-3xl font-bold text-white capitalize">{holisticPlatformModel.title}</h2>
-            <ul className="mt-8 space-y-4">
-              {holisticPlatformModel.connections.map((item) => (
-                <li key={item} className="flex gap-3 text-sm leading-relaxed text-white/85 sm:text-base">
-                  <span className="mt-2 h-1.5 w-1.5 shrink-0 rounded-full bg-brand-gold" aria-hidden="true" />
-                  {item}
-                </li>
-              ))}
-            </ul>
-            <p className="mt-8 text-base font-semibold leading-relaxed text-white sm:text-lg">
-              {holisticPlatformModel.closing}
-            </p>
-            <p className="mt-4 text-sm leading-relaxed text-white/75 sm:text-base">{holisticPlatformModel.finalPoint}</p>
+          {/* Holistic Model */}
+          <PlatformSection id="holistic-model" title="How It All Interlocks: A Holistic Model">
+            <PlatformBlock items={holisticPlatformModel.connections} />
+            <p className="text-base leading-relaxed text-brand-black/85">{holisticPlatformModel.together}</p>
+          </PlatformSection>
+
+          {/* Final Strategic Point */}
+          <PlatformSection id="final-strategic-point" title="Final Strategic Point" variant="muted">
+            <PlatformBlock body={[holisticPlatformModel.closing, holisticPlatformModel.finalPoint]} />
             <div className="mt-8 flex flex-wrap gap-3">
               <Button href="/district-7" variant="primary">
                 District 7 data
               </Button>
-              <Button href="/approach" variant="outlineLight">
-                Civic approach & phases
+              <Button href="/approach" variant="ghost">
+                Civic approach and phases
               </Button>
-            </div>
-          </Reveal>
-        </div>
-      </section>
-
-      {/* Digital platform features */}
-      <section className="border-t border-brand-navy/10 bg-white py-14 sm:py-16">
-        <div className="mx-auto max-w-6xl px-4 sm:px-6 lg:px-8">
-          <Reveal>
-            <p className="text-xs font-semibold uppercase tracking-[0.2em] text-brand-gold">Digital platform</p>
-            <h2 className="mt-2 font-serif text-3xl font-bold text-brand-navy">Digital platform features</h2>
-            <p className="mt-3 max-w-2xl text-sm leading-relaxed text-brand-black/75">
-              {brand.nameWithTm} is building digital tools to connect residents, track impact, and amplify community
-              voices.
-            </p>
-          </Reveal>
-          <div className="mt-10 grid gap-6 sm:grid-cols-2">
-            {digitalFeatures.map((feature, i) => (
-              <Reveal key={feature.title} delayMs={i * 60}>
-                <article className="h-full rounded-xl border border-brand-navy/10 bg-surface p-6 shadow-sm">
-                  <h3 className="font-serif text-xl font-bold text-brand-navy">{feature.title}</h3>
-                  <p className="mt-2 text-sm font-medium text-brand-black/70">{feature.intro}</p>
-                  <ul className="mt-4 space-y-2">
-                    {feature.items.map((item) => (
-                      <li key={item} className="flex gap-2 text-sm text-brand-black/80">
-                        <span className="mt-2 h-1.5 w-1.5 shrink-0 rounded-full bg-brand-gold" aria-hidden="true" />
-                        {item}
-                      </li>
-                    ))}
-                  </ul>
-                </article>
-              </Reveal>
-            ))}
-          </div>
-        </div>
-      </section>
-
-      {/* Long-term vision */}
-      <section className="border-t border-brand-navy/10 bg-surface py-14 sm:py-16">
-        <div className="mx-auto max-w-3xl px-4 text-center sm:px-6 lg:px-8">
-          <Reveal>
-            <p className="text-xs font-semibold uppercase tracking-[0.2em] text-brand-gold">Long-term vision</p>
-            <blockquote className="mt-6 font-serif text-xl leading-relaxed text-brand-navy sm:text-2xl">
-              &ldquo;{longTermVision}&rdquo;
-            </blockquote>
-            <div className="mt-10 flex flex-wrap justify-center gap-3">
-              <Button href="/volunteer" variant="primary">
+              <Button href="/volunteer" variant="ghost">
                 Get involved
               </Button>
-              <Button href="/contact" variant="ghost">
-                Contact us
-              </Button>
             </div>
-          </Reveal>
+          </PlatformSection>
         </div>
-      </section>
+      </div>
     </div>
   );
 }
