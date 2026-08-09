@@ -91,6 +91,18 @@ export const shopCheckoutUrl =
     ? process.env.NEXT_PUBLIC_SHOP_URL
     : "";
 
+/** Google Maps JavaScript API key for the voting map. */
+export const googleMapsApiKey =
+  typeof process !== "undefined" && process.env.NEXT_PUBLIC_GOOGLE_MAPS_API_KEY
+    ? process.env.NEXT_PUBLIC_GOOGLE_MAPS_API_KEY
+    : "";
+
+/** Optional Cloud-based map style ID for Advanced Markers. */
+export const googleMapsMapId =
+  typeof process !== "undefined" && process.env.NEXT_PUBLIC_GOOGLE_MAPS_MAP_ID
+    ? process.env.NEXT_PUBLIC_GOOGLE_MAPS_MAP_ID
+    : "";
+
 /** Append ?amount= for processors that accept it; falls back to base URL. */
 export function getDonationUrl(amountDollars: number): string | null {
   if (!donationCheckoutUrl || amountDollars <= 0) return null;
@@ -117,16 +129,15 @@ const baseNavigation = [
   { href: "/", label: "Home" },
   { href: "/about", label: "About" },
   { href: "/platform", label: "Platform" },
+  { href: "/map", label: "Map" },
   { href: "/shop", label: "Shop" },
   { href: "/volunteer", label: "Volunteer" },
   { href: "/contact", label: "Contact" },
 ] as const;
 
-const donateNavItem = { href: "/donate", label: "Donate" } as const;
-
-/** Navigation items filtered by current campaign phase. */
+/** Navigation items filtered by current campaign phase. Donate is a separate button in the navbar. */
 export function getNavigation() {
-  return activePhase.showDonate ? [...baseNavigation, donateNavItem] : [...baseNavigation];
+  return [...baseNavigation];
 }
 
 export const navigation = getNavigation();

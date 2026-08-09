@@ -6,6 +6,7 @@ import { IssueCard } from "@/components/IssueCard";
 import { MerchCard } from "@/components/MerchCard";
 import { NewsletterForm } from "@/components/NewsletterForm";
 import { Reveal } from "@/components/Reveal";
+import { VotingMap } from "@/components/VotingMap";
 import { brand } from "@/lib/config";
 import { featuredPillars, merchProducts, mission } from "@/lib/content";
 
@@ -161,6 +162,29 @@ export default function HomePage() {
                   Contact the team
                 </Button>
               </div>
+            </div>
+          </div>
+        </section>
+      </Reveal>
+
+      <Reveal delayMs={100}>
+        <section className="border-t border-brand-navy/10 bg-white py-14 sm:py-16">
+          <div className="mx-auto max-w-6xl px-4 sm:px-6 lg:px-8">
+            <div className="flex flex-col gap-4 sm:flex-row sm:items-end sm:justify-between">
+              <div>
+                <p className="text-xs font-semibold uppercase tracking-[0.2em] text-brand-gold">Voting map</p>
+                <h2 className="mt-2 font-serif text-3xl font-bold text-brand-navy">Find your polling place</h2>
+                <p className="mt-2 max-w-2xl text-sm text-brand-black/75">
+                  Interactive satellite map with colored overlays for MKE districts 1, 2, 5, 7, 9, and 10 — numbered
+                  labels on each district — plus pins at every polling place. Tap a pin for location details.
+                </p>
+              </div>
+              <Button href="/map" variant="ghost" className="self-start sm:self-auto">
+                Open full map
+              </Button>
+            </div>
+            <div className="mt-10">
+              <VotingMap showDistricts heightClassName="h-[420px] sm:h-[480px]" />
             </div>
           </div>
         </section>

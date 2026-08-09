@@ -1,0 +1,659 @@
+[
+  {
+    "id": 7,
+    "name": "Parkview School",
+    "address": "10825 W Villard Av",
+    "entrance": "Voters should use the entrance from the parking lot, Door #8",
+    "lat": 43.11150602517033,
+    "lng": -88.04782486297364,
+    "district": 5
+  },
+  {
+    "id": 8,
+    "name": "River Trail Elementary School",
+    "address": "12021 W Florist Av",
+    "entrance": "Voters should use the main building entrance on W Florist Ave",
+    "lat": 43.12586507247075,
+    "lng": -88.06154876794484,
+    "district": 5
+  },
+  {
+    "id": 19,
+    "name": "Dyer Playground Fieldhouse",
+    "address": "151 N 80th St",
+    "entrance": "Voters should use the main building entrance on N 80th St",
+    "lat": 43.032244111350145,
+    "lng": -88.01262205228842,
+    "district": 10
+  },
+  {
+    "id": 23,
+    "name": "Neeskara Elementary School",
+    "address": "1601 N Hawley Rd",
+    "entrance": "Voters should use the building entrance on N 57th St and Galena St, Door #3",
+    "lat": 43.05171779909985,
+    "lng": -87.98347400735278,
+    "district": 10
+  },
+  {
+    "id": 31,
+    "name": "Rufus King High School",
+    "address": "1801 W Olive St",
+    "entrance": "Voters should use Door #3 on W Olive St",
+    "lat": 43.093408346757336,
+    "lng": -87.93316427151244,
+    "district": 1
+  },
+  {
+    "id": 32,
+    "name": "Invalid:33",
+    "address": "Invalid:33",
+    "entrance": "Voters should use Door #3 on W Olive St",
+    "lat": 43.093408346757336,
+    "lng": -87.93316427151244,
+    "district": 1
+  },
+  {
+    "id": 37,
+    "name": "Atkinson Library",
+    "address": "1960 W Atkinson Av",
+    "entrance": "Voters should use the main building entrance on W Atkinson Ave",
+    "lat": 43.09007705137069,
+    "lng": -87.9360818674566,
+    "district": 1
+  },
+  {
+    "id": 43,
+    "name": "Merrill Park Apartments",
+    "address": "222 N 33rd St",
+    "entrance": "Voters should use the main building entrance on N 33rd St",
+    "lat": 43.03315429040597,
+    "lng": -87.95494042052138,
+    "district": 10
+  },
+  {
+    "id": 47,
+    "name": "Children's Outing Association (COA)",
+    "address": "2320 W Burleigh St",
+    "entrance": "Voters should use the main building entrance on W Burleigh St",
+    "lat": 43.07563383798288,
+    "lng": -87.94168751521134,
+    "district": 7
+  },
+  {
+    "id": 55,
+    "name": "New Hope Missionary Baptist Church",
+    "address": "2433 W Roosevelt Dr",
+    "entrance": "Voters should use the main building entrance on W Roosevelt Dr",
+    "lat": 43.09486692715834,
+    "lng": -87.9430483941401,
+    "district": 1
+  },
+  {
+    "id": 71,
+    "name": "Enderis Playground Fieldhouse",
+    "address": "2938 N 72nd St",
+    "entrance": "Voters should use the entrance from the parking lot on W Chamber Ct",
+    "lat": 43.07244075955217,
+    "lng": -88.00136496394995,
+    "district": 10
+  },
+  {
+    "id": 72,
+    "name": "81st Street School",
+    "address": "2964 N 81st St",
+    "entrance": "Voters should use the main building entrance on N 81st St",
+    "lat": 43.07284798476625,
+    "lng": -88.01332031057834,
+    "district": 5
+  },
+  {
+    "id": 74,
+    "name": "Mary Ryan Boys & Girls Club",
+    "address": "3000 N Sherman Bl",
+    "entrance": "Voters should use the main building entrance on N Sherman Blvd or the Burleigh St parking  lot entrance",
+    "lat": 43.07368190515662,
+    "lng": -87.96561869828672,
+    "district": 7
+  },
+  {
+    "id": 77,
+    "name": "Cannon Park Pavilion",
+    "address": "303 N 95th St",
+    "entrance": "Voters should use the main building entrance on N 95th St",
+    "lat": 43.03242518983296,
+    "lng": -88.03048208195757,
+    "district": 10
+  },
+  {
+    "id": 80,
+    "name": "Keenan Health Center",
+    "address": "3200 N 36th St",
+    "entrance": "Voters should use the main building entrance on N 36th St",
+    "lat": 43.077333466033984,
+    "lng": -87.95808611956593,
+    "district": 7
+  },
+  {
+    "id": 91,
+    "name": "Banner Prep / Assata High School",
+    "address": "3517 W Courtland Av",
+    "entrance": "Voters should use Door #4 on the corner of 35th St and Courtland Ave",
+    "lat": 43.10210838995752,
+    "lng": -87.95738954376931,
+    "district": 1
+  },
+  {
+    "id": 94,
+    "name": "Clemens, Samuel School",
+    "address": "3600 W Hope Av",
+    "entrance": "Voters should use the main building entrance",
+    "lat": 43.094200123440615,
+    "lng": -87.95912981085512,
+    "district": 7
+  },
+  {
+    "id": 95,
+    "name": "53rd Street School ",
+    "address": "3618 N 53rd St",
+    "entrance": "Voters should use main building entrance on N 53rd St",
+    "lat": 43.08389324114322,
+    "lng": -87.97899997596616,
+    "district": 7
+  },
+  {
+    "id": 100,
+    "name": "95th Street School",
+    "address": "3707 N 94th St",
+    "entrance": "Voters should use the main building entrance on N 94th St",
+    "lat": 43.084515335035924,
+    "lng": -88.03070506769104,
+    "district": 5
+  },
+  {
+    "id": 101,
+    "name": "Embassy Center MKE",
+    "address": "3725 N Sherman Bl",
+    "entrance": "Voters should use the entrance from the parking lot on W Fond Du Lac Ave, Door #1",
+    "lat": 43.084419988064965,
+    "lng": -87.96788393166496,
+    "district": 7
+  },
+  {
+    "id": 102,
+    "name": "German Immersion School, Milwaukee",
+    "address": "3778 N 82nd St",
+    "entrance": "Voters should use the main building entrance on N 82nd St",
+    "lat": 43.08528779834027,
+    "lng": -88.01367295969729,
+    "district": 5
+  },
+  {
+    "id": 105,
+    "name": "DPW Field Headquarters",
+    "address": "3850 N 35th St",
+    "entrance": "Voters should use the main building entrance on N 35th St that is accessed from the parking lot",
+    "lat": 43.08552209264587,
+    "lng": -87.95599066475089,
+    "district": 7
+  },
+  {
+    "id": 109,
+    "name": "Marshall High School",
+    "address": "4141 N 64th St",
+    "entrance": "Voters should use the entrance closest to the parking lot, Door #10, on N 64th St and W Hope Ave",
+    "lat": 43.093306999412924,
+    "lng": -87.99327435756778,
+    "district": 2
+  },
+  {
+    "id": 111,
+    "name": "Dr. Howard Fuller Academy",
+    "address": "4340 N 46th St",
+    "entrance": "Voters should use the main building entrance on N 46th St",
+    "lat": 43.09551515647469,
+    "lng": -87.97000056524325,
+    "district": 7
+  },
+  {
+    "id": 115,
+    "name": "McGovern Park Senior Center",
+    "address": "4500 W Custer Ave",
+    "entrance": "Voters should use the main building entrance off of the building's parking lot (enter from Custer Ave)",
+    "lat": 43.117347745697906,
+    "lng": -87.97200126634735,
+    "district": 1
+  },
+  {
+    "id": 116,
+    "name": "Wisconsin Humane Society",
+    "address": "4500 W Wisconsin Av",
+    "entrance": "Voters should use the main building entrance on W Wisconsin Ave",
+    "lat": 43.039157484613646,
+    "lng": -87.96989681400733,
+    "district": 10
+  },
+  {
+    "id": 118,
+    "name": "Grantosa Drive Elementary School",
+    "address": "4850 N 82nd St ",
+    "entrance": "Voters should use the main building entrance on N 82nd St",
+    "lat": 43.10626229804675,
+    "lng": -88.01301329427694,
+    "district": 2
+  },
+  {
+    "id": 120,
+    "name": "Lancaster Elementary School",
+    "address": "4931 N 68th St",
+    "entrance": "Voters should use the main building entrance on N 68th St",
+    "lat": 43.107577627753855,
+    "lng": -87.99667660060905,
+    "district": 2
+  },
+  {
+    "id": 121,
+    "name": "Excellence Charter School",
+    "address": "4950 N 24th St",
+    "entrance": "Voters should use entrance #2 on W Fairmount Ave",
+    "lat": 43.10740008188527,
+    "lng": -87.94043183814581,
+    "district": 1
+  },
+  {
+    "id": 123,
+    "name": "Hampton School",
+    "address": "5000 N 53rd St",
+    "entrance": "Spring elections: Voters should use Door 4 (south of main building entrance) and go to the gym  Fall elections: Voters should use the first door north of the main building entrance and go to the library",
+    "lat": 43.1088028298449,
+    "lng": -87.97822976346774,
+    "district": 1
+  },
+  {
+    "id": 124,
+    "name": "Barack Obama School of CTE",
+    "address": "5075 N Sherman Bl",
+    "entrance": "Voters should use the main building entrance on N Sherman Blvd",
+    "lat": 43.10959409655127,
+    "lng": -87.9683837896815,
+    "district": 1
+  },
+  {
+    "id": 125,
+    "name": "Engelburg School",
+    "address": "5100 N 91st St",
+    "entrance": "Voters should use the main building entrance on N 91st St",
+    "lat": 43.110904424729036,
+    "lng": -88.02517871541436,
+    "district": 5
+  },
+  {
+    "id": 126,
+    "name": "Sherman Elementary School",
+    "address": "5110 W Locust St",
+    "entrance": "Voters should use the entrance on N 51st St",
+    "lat": 43.07207978035013,
+    "lng": -87.97803248238053,
+    "district": 7
+  },
+  {
+    "id": 127,
+    "name": "Marvin Pratt Elementary School",
+    "address": "5131 N Green Bay Av",
+    "entrance": "Voters should use the main building entrance on N Green Bay Ave",
+    "lat": 43.110677874549154,
+    "lng": -87.933435758729,
+    "district": 1
+  },
+  {
+    "id": 130,
+    "name": "Villard Square Library",
+    "address": "5190 N 35th St",
+    "entrance": "Voters should use the main building entrance on N 35 th St",
+    "lat": 43.11169224029979,
+    "lng": -87.95600462867786,
+    "district": 1
+  },
+  {
+    "id": 131,
+    "name": "Congress Elementary School",
+    "address": "5225 W Lincoln Creek Dr",
+    "entrance": "Voters should use the main building entrance on W Lincoln Creek Dr",
+    "lat": 43.09825098736745,
+    "lng": -87.97876417951422,
+    "district": 7
+  },
+  {
+    "id": 132,
+    "name": "MPS Administration Building",
+    "address": "5225 W Vliet St",
+    "entrance": "Voters should use the rear entrance from the parking lot",
+    "lat": 43.04859667678568,
+    "lng": -87.97966266547122,
+    "district": 10
+  },
+  {
+    "id": 133,
+    "name": "Invalid:138",
+    "address": "Invalid:138",
+    "entrance": "Voters should use the main building entrance on N 35 th St",
+    "lat": 43.11169224029979,
+    "lng": -87.95600462867786,
+    "district": 1
+  },
+  {
+    "id": 134,
+    "name": "Byron Kilbourn Elementary School",
+    "address": "5354 N 68th St",
+    "entrance": "Voters should use the main building entrance on N 68th St",
+    "lat": 43.115185853324455,
+    "lng": -87.99571355491081,
+    "district": 2
+  },
+  {
+    "id": 135,
+    "name": "Silver Spring Neighborhood Center",
+    "address": "5460 N 64th St",
+    "entrance": "Voters should use the main building entrance on N 64th St",
+    "lat": 43.11791376413533,
+    "lng": -87.99055690989077,
+    "district": 2
+  },
+  {
+    "id": 136,
+    "name": "Albright Methodist Church",
+    "address": "5555 W Capitol Dr",
+    "entrance": "Voters should use the main building entrance on W Capitol Dr or rear entrance on W Melvina St",
+    "lat": 43.08950569478459,
+    "lng": -87.98268154794377,
+    "district": 7
+  },
+  {
+    "id": 137,
+    "name": "Seventy-Six Street Building",
+    "address": "5575 N 76th St",
+    "entrance": "Voters should use the main building entrance on N 76th St",
+    "lat": 43.118852096177505,
+    "lng": -88.00774126552133,
+    "district": 2
+  },
+  {
+    "id": 138,
+    "name": "Hawley School",
+    "address": "5610 W Wisconsin Av",
+    "entrance": "Voters should use the main building entrance on W Wisconsin Ave",
+    "lat": 43.03923337683644,
+    "lng": -87.98340829265244,
+    "district": 10
+  },
+  {
+    "id": 139,
+    "name": "Clara Barton School",
+    "address": "5700 W Green Tree Rd",
+    "entrance": "Voters should use the main building entrance on W Green Tree Rd",
+    "lat": 43.141635842043385,
+    "lng": -87.98373560680086,
+    "district": 9
+  },
+  {
+    "id": 140,
+    "name": "Kluge, Richard School",
+    "address": "5760 N 67th St",
+    "entrance": "Voters should use the main building entrance on N 67th St",
+    "lat": 43.12255971299992,
+    "lng": -87.9940274929134,
+    "district": 2
+  },
+  {
+    "id": 141,
+    "name": "Thurston Woods Elementary School",
+    "address": "5966 N 35th St",
+    "entrance": "Voters should enter through Door #3 at south end of the building on N 34th St and W Wren Ave",
+    "lat": 43.12575320220505,
+    "lng": -87.95536544242287,
+    "district": 1
+  },
+  {
+    "id": 142,
+    "name": "Burbank, Luther Elementary School",
+    "address": "6035 W Adler St",
+    "entrance": "Voters should use the main building entrance on W Adler St",
+    "lat": 43.027196955480086,
+    "lng": -87.98997244753775,
+    "district": 10
+  },
+  {
+    "id": 143,
+    "name": "New Beginnings",
+    "address": "6100 N 42nd St",
+    "entrance": "Voters should use the main building entrance on N 42nd St",
+    "lat": 43.12875668742184,
+    "lng": -87.96408052481964,
+    "district": 1
+  },
+  {
+    "id": 144,
+    "name": "MacDowell Montessori School",
+    "address": "6415 W Mt Vernon Av",
+    "entrance": "Voters should use the main building entrance on W Mt Vernon Ave",
+    "lat": 43.03337761998172,
+    "lng": -87.99279450177548,
+    "district": 10
+  },
+  {
+    "id": 145,
+    "name": "Center Street Park Pavilion",
+    "address": "6420 W Clarke St",
+    "entrance": "Voters should use the main building entrance on W Clarke St ",
+    "lat": 43.066591279052716,
+    "lng": -87.99285897484974,
+    "district": 10
+  },
+  {
+    "id": 149,
+    "name": "Environmental Sciences School, Milwaukee",
+    "address": "6600 W Melvina St",
+    "entrance": "Voters should use the main building entrance on W Melvina St",
+    "lat": 43.08898687098834,
+    "lng": -87.99490797588045,
+    "district": 2
+  },
+  {
+    "id": 150,
+    "name": "Dineen Park Pavilion",
+    "address": "6601 W Vienna Av",
+    "entrance": "Voters should use the main building entrance on W Vienna Ave",
+    "lat": 43.08560260173506,
+    "lng": -87.99374065146534,
+    "district": 10
+  },
+  {
+    "id": 151,
+    "name": "Maple Tree Elementary School",
+    "address": "6644 N 107th St",
+    "entrance": "Voters should use the building entrance east of the parking lot on W Daphne St (Door #5)",
+    "lat": 43.138635813704816,
+    "lng": -88.04437904450882,
+    "district": 5
+  },
+  {
+    "id": 152,
+    "name": "Police Safety Academy",
+    "address": "6680 N Teutonia Av",
+    "entrance": "Voters should use the northeast (rear) parking lot entrance",
+    "lat": 43.138794875892465,
+    "lng": -87.95314527598914,
+    "district": 1
+  },
+  {
+    "id": 153,
+    "name": "Green Tree Preparatory Academy",
+    "address": "6850 N 53rd St ",
+    "entrance": "Voters should use Door #4 (south of main building entrance) and go to the gym",
+    "lat": 43.1421709860638,
+    "lng": -87.97677748746311,
+    "district": 9
+  },
+  {
+    "id": 155,
+    "name": "Stuart, Gilbert School",
+    "address": "7001 N 86th St",
+    "entrance": "Voters should use the main building entrance on N 86th St",
+    "lat": 43.14524850875476,
+    "lng": -88.0185654437216,
+    "district": 9
+  },
+  {
+    "id": 157,
+    "name": "Indigenous People's Park Pavilion",
+    "address": "7301 W Courtland Av",
+    "entrance": "Voters should use the main building entrance on W Courtland Ave",
+    "lat": 43.102527891623204,
+    "lng": -88.00353746876704,
+    "district": 2
+  },
+  {
+    "id": 159,
+    "name": "Vincent High School",
+    "address": "7501 N Granville Rd",
+    "entrance": "Voters should use the entrance just north of the main building entrance, Door #4",
+    "lat": 43.15484397111871,
+    "lng": -88.03093427823458,
+    "district": 9
+  },
+  {
+    "id": 160,
+    "name": "Craig Montessori School",
+    "address": "7667 W Congress St",
+    "entrance": "Voters should use the main building entrance on W Congress St",
+    "lat": 43.096763686470595,
+    "lng": -88.00818553325962,
+    "district": 5
+  },
+  {
+    "id": 162,
+    "name": "Thoreau, Henry D. Elementary School",
+    "address": "7878 N 60th St",
+    "entrance": "Voters should use the main building entrance on N 60th St",
+    "lat": 43.16104324081151,
+    "lng": -87.98417606977442,
+    "district": 9
+  },
+  {
+    "id": 163,
+    "name": "Sign Language School, Milwaukee",
+    "address": "7900 W Acacia St",
+    "entrance": "Voters should use the main building entrance on W Acacia St",
+    "lat": 43.138147173465256,
+    "lng": -88.00977309280675,
+    "district": 9
+  },
+  {
+    "id": 164,
+    "name": "Madison High School",
+    "address": "8135 W Florist Av",
+    "entrance": "Voters should use the entrance east of the main building entrance on W Florist Ave",
+    "lat": 43.12631010389176,
+    "lng": -88.01293661252913,
+    "district": 2
+  },
+  {
+    "id": 165,
+    "name": "Goodrich Elementary School",
+    "address": "8251 N Celina St",
+    "entrance": "Voters should use the main building entrance on N Celina St ",
+    "lat": 43.1668582818228,
+    "lng": -88.03758839818403,
+    "district": 9
+  },
+  {
+    "id": 166,
+    "name": "School of Languages, Milwaukee",
+    "address": "8400 W Burleigh St",
+    "entrance": "Voters should use the main building entrance on W Burleigh St",
+    "lat": 43.07579849759692,
+    "lng": -88.01877937643093,
+    "district": 5
+  },
+  {
+    "id": 168,
+    "name": "Firehouse Station 38",
+    "address": "8463 N Granville Rd",
+    "entrance": "Voters should use the main entrance on N Granville Rd\r\n",
+    "lat": 43.17171577382359,
+    "lng": -88.03955947348966,
+    "district": 9
+  },
+  {
+    "id": 169,
+    "name": "Cooper Park Pavilion",
+    "address": "8701 W Chambers St",
+    "entrance": "Voters should use the main building entrance accessed from W Chambers St ",
+    "lat": 43.072604155332264,
+    "lng": -88.02162635503657,
+    "district": 5
+  },
+  {
+    "id": 170,
+    "name": "Bryant Elementary School",
+    "address": "8718 W Thurston Av",
+    "entrance": "Voters should use the main building entrance on W Thurston Ave",
+    "lat": 43.120854418071985,
+    "lng": -88.02155075790894,
+    "district": 2
+  },
+  {
+    "id": 171,
+    "name": "Firehouse Station 22",
+    "address": "8814 W Lisbon Av",
+    "entrance": "Voters should use the main entrance on W Lisbon Ave\r\n",
+    "lat": 43.083474861450206,
+    "lng": -88.02282356910206,
+    "district": 5
+  },
+  {
+    "id": 172,
+    "name": "Emerson Elementary School",
+    "address": "9025 W Lawrence Av",
+    "entrance": "Voters should use the main building entrance on W Lawrence Ave",
+    "lat": 43.097579536817,
+    "lng": -88.0256146951989,
+    "district": 5
+  },
+  {
+    "id": 173,
+    "name": "Believers in Christ Church",
+    "address": "9455 N 76th St",
+    "entrance": "Voters should use the main building entrance on the north side which can be accessed from the parking lot",
+    "lat": 43.18999894900892,
+    "lng": -88.00517603018942,
+    "district": 9
+  },
+  {
+    "id": 174,
+    "name": "Greater Holy Temple Christian Academy",
+    "address": "9520 W Allyn St",
+    "entrance": "Voters should enter from the main entrance on W Allyn St",
+    "lat": 43.1840249693363,
+    "lng": -88.02850790421108,
+    "district": 9
+  },
+  {
+    "id": 183,
+    "name": "Wellpoint Care Network",
+    "address": "8901 W Capitol Dr",
+    "entrance": "Voters should use the main entrance off of the parking lot facing W Capitol Dr ",
+    "lat": 43.08874958953744,
+    "lng": -88.02393336994571,
+    "district": 5
+  },
+  {
+    "id": 184,
+    "name": "Havenwoods Environmental Awareness Center",
+    "address": "6141 N Hopkins St",
+    "entrance": "At the north east corner of the building adjacent to the parking lot",
+    "lat": 43.12868873301647,
+    "lng": -87.97024944185775,
+    "district": 1
+  }
+]
