@@ -129,6 +129,7 @@ const baseNavigation = [
   { href: "/", label: "Home" },
   { href: "/about", label: "About" },
   { href: "/platform", label: "Platform" },
+  { href: "/district-7", label: "District 7" },
   { href: "/map", label: "Map" },
   { href: "/shop", label: "Shop" },
   { href: "/volunteer", label: "Volunteer" },

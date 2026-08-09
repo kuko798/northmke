@@ -280,7 +280,7 @@ export default function HomePage() {
               <div className="relative">
                 <p className="text-xs font-semibold uppercase tracking-[0.2em] text-brand-gold">Explore the platform</p>
                 <h2 className="mt-3 font-serif text-2xl font-bold sm:text-3xl">
-                  See all seven strategic pillars and our long-term vision.
+                  See all eight strategic pillars and our long-term vision.
                 </h2>
                 <p className="mt-3 max-w-xl text-sm text-white/85">
                   From housing investment to healthcare access, learn how NorthMKE is building measurable community
