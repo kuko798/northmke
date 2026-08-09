@@ -162,6 +162,8 @@ export const womensEconomicMobility = {
     "Develop civic and nonprofit leadership pipelines.",
     "Create mentorship networks connecting students to professionals.",
   ],
+  roiFrameworkIntro:
+    "NorthMKE views investments in educated women as a community-development strategy because success in this population often produces broader benefits:",
   roiFramework:
     "Investment → Career Growth → Higher Household Income → Homeownership → Stronger Neighborhoods → Expanded Tax Base → Greater Community Wealth",
   keyIndicators: [
@@ -286,6 +288,7 @@ export const pillarDetails: readonly PillarDetailContent[] = [
       },
       {
         title: "ROI framework",
+        intro: womensEconomicMobility.roiFrameworkIntro,
         body: womensEconomicMobility.roiFramework,
       },
       {
@@ -627,17 +630,142 @@ export const district7Overview = {
 } as const;
 
 export const holisticPlatformModel = {
-  title: "How the pillars interlock",
-  intro: "NorthMKE's platform is designed as a self-reinforcing model for inclusive growth:",
+  title: "How it all interlocks: a holistic model",
+  intro: "Together, these pillars reinforce one another — creating a self-sustaining engine of economic justice, environmental resilience, and generational wealth:",
   connections: [
     "College-educated women are supported and rooted through ownership, child care, and entrepreneurship.",
     "Foundational workers are incentivized to live where they work and stabilize their neighborhoods.",
     "Education reform raises property values and strengthens the long-term tax base.",
     "Green infrastructure projects create jobs, improve health, and position the district as a climate leader.",
-    "MPD realignment integrates safety with housing, schools, and community trust.",
   ],
   closing:
-    "The 7th District has the numbers. It has the land. It has the people. What it needs is the policy. By making this district the flagship for inclusive growth, we don't just transform one part of Milwaukee — we show the whole state what's possible when you invest in the people who've always invested in you.",
+    "The 7th District has the numbers. It has the land. It has the people. What it needs is the policy.",
+  finalPoint:
+    "By making this district the flagship for inclusive growth, we don't just transform one part of Milwaukee — we show the whole state what's possible when you invest in the people who've always invested in you.",
+} as const;
+
+export type StrategicArgumentSubsection = {
+  title: string;
+  body?: string;
+  items?: readonly string[];
+};
+
+export type StrategicArgument = {
+  number: number;
+  title: string;
+  paragraphs: readonly string[];
+  items?: readonly string[];
+  subsections?: readonly StrategicArgumentSubsection[];
+  rippleEffect?: readonly string[];
+  outcomes?: readonly string[];
+  closing?: string;
+};
+
+/** Strategic case for why District 7 is Milwaukee's launchpad — rendered on /platform. */
+export const strategicArguments = {
+  title: "Why the 7th District is the launchpad for Milwaukee's future",
+  subtitle: "Strategic argument",
+  districtTagline: "Rooted in the 7th — Home. Growth. Power. Safety.",
+  arguments: [
+    {
+      number: 1,
+      title: "Why we must invest in college-educated women",
+      paragraphs: [
+        "The 7th Aldermanic District is uniquely positioned to become a national model for inclusive economic development by intentionally focusing on the empowerment of college-educated women.",
+        "College-educated women in Milwaukee remain among the most under-leveraged economic contributors in the city. Despite having degrees, entrepreneurial energy, and deep community ties, they remain underserved in business financing, housing, and workforce pipelines.",
+        "These women represent both social stability and economic mobility. They're more likely to be caregivers, small business owners, public sector employees, and civic participants — meaning that when they thrive, entire blocks and neighborhoods follow.",
+      ],
+      rippleEffect: [
+        "More stable households",
+        "Increased disposable income",
+        "Higher consumer spending",
+        "A stronger tax base",
+        "Greater civic participation",
+        "More local hiring and mentorship",
+      ],
+      closing:
+        "By marketing the 7th as a college-educated women–friendly district, we attract a high-performing, civically engaged population that builds wealth locally rather than extracting it.",
+    },
+    {
+      number: 2,
+      title: "Why incentivizing homeownership for foundational citizens is a smart economic play",
+      paragraphs: [
+        "If we want long-term growth, we must stabilize the backbone of our neighborhoods: educators, nurses, first responders, and city workers. These are our \"foundational citizens.\"",
+        "Homeownership among foundational citizens increases community investment, improves public trust, and enhances neighborhood safety.",
+        "Policies that incentivize their homeownership — through down-payment assistance, mortgage guarantees, or tax relief — anchor skilled workers in the district and reduce turnover in essential services.",
+        "On the flip side, we must de-incentivize absentee and corporate landlords, especially those based out of state. Right now, corporate housing firms are:",
+      ],
+      items: [
+        "Extracting rents",
+        "Neglecting maintenance",
+        "Driving up property prices without reinvesting in the community",
+      ],
+      subsections: [
+        {
+          title: "Solution",
+          body: "Prioritize owner-occupied buyers through policy:",
+          items: [
+            "\"First Look\" programs for public employees",
+            "Vacancy-to-ownership tax credits",
+            "Increased property taxes for corporate residential holding companies",
+          ],
+        },
+      ],
+      closing:
+        "This isn't just housing policy — it's economic policy, crime prevention, and community building all in one.",
+    },
+    {
+      number: 3,
+      title: "Why taking over and reforming the local K-8 school system is critical to home values and growth",
+      paragraphs: [
+        "Every parent — regardless of race, income, or background — wants access to safe, high-quality public education.",
+        "In many parts of Milwaukee, perceptions of failing or underperforming schools are directly tied to low home values, outmigration, and disinvestment.",
+        "In the 7th District, we don't have the luxury of waiting on top-down reform. We must:",
+      ],
+      items: [
+        "Create community-led educational oversight boards",
+        "Tie school renovation directly to local workforce development",
+        "Modernize curriculum to align with 21st-century jobs",
+        "Incentivize teachers to live in the district they serve",
+      ],
+      subsections: [
+        {
+          title: "Outcome",
+          body: "When families believe in the local school system, they buy in. Literally.",
+          items: [
+            "Property values go up.",
+            "Families stay longer.",
+            "Local businesses have a larger customer base.",
+            "Education becomes an economic multiplier.",
+          ],
+        },
+      ],
+    },
+    {
+      number: 4,
+      title: "How these factors create a launchpad for local, state, and regional green infrastructure projects",
+      paragraphs: [
+        "When you combine stable, civically engaged residents; homeownership among essential workers; empowered women-led businesses; and stronger schools and higher property values — you don't just get a healthier neighborhood. You get a district ready to lead on big, systemic change. This is where green infrastructure comes in.",
+        "Green infrastructure projects — like stormwater systems, solar panels, urban agriculture, and EV charging stations — require community buy-in, skilled labor, and long-term stewardship.",
+        "The 7th District can become the ideal urban testbed for these projects because:",
+      ],
+      items: [
+        "It has underutilized land and vacant properties",
+        "A growing population of educated, environmentally conscious residents",
+        "Local institutions willing to partner (schools, churches, community groups)",
+        "The 7th has a concentrated voter base that can be mobilized to push for state and regional partnerships",
+      ],
+      subsections: [
+        {
+          title: "Regional leverage",
+          body:
+            "We can leverage our demographic and electoral power to demand Milwaukee's share of federal and state green investment dollars.",
+        },
+      ],
+      closing:
+        "If Milwaukee wants to lead the Midwest in climate resilience and urban sustainability, it starts in the 7th.",
+    },
+  ] satisfies readonly StrategicArgument[],
 } as const;
 
 /** Pillars shown as home-page teasers. */

@@ -14,7 +14,9 @@ import {
   pillarDetails,
   pillars,
   platformIdentity,
+  strategicArguments,
 } from "@/lib/content";
+import { StrategicArgumentsSection } from "@/components/StrategicArgumentsSection";
 
 export const metadata: Metadata = {
   title: "Platform",
@@ -61,6 +63,12 @@ export default function PlatformPage() {
           </Reveal>
 
           <nav className="mt-8 flex flex-wrap gap-2" aria-label="Jump to pillar">
+            <Link
+              href="#strategic-arguments"
+              className="rounded-full border border-brand-gold/40 bg-brand-gold/10 px-3 py-1.5 text-xs font-medium text-brand-navy transition-colors hover:border-brand-gold hover:text-brand-gold"
+            >
+              Strategic arguments
+            </Link>
             {pillars.map((pillar) => (
               <Link
                 key={pillar.id}
@@ -87,13 +95,19 @@ export default function PlatformPage() {
         <PillarDetail key={pillar.id} {...pillar} index={i} />
       ))}
 
+      <StrategicArgumentsSection
+        title={strategicArguments.title}
+        subtitle={strategicArguments.subtitle}
+        districtTagline={strategicArguments.districtTagline}
+        arguments={strategicArguments.arguments}
+      />
+
       {/* Holistic model */}
       <section className="border-t border-brand-navy/10 bg-brand-navy py-14 sm:py-16">
         <div className="mx-auto max-w-4xl px-4 sm:px-6 lg:px-8">
           <Reveal>
             <p className="text-xs font-semibold uppercase tracking-[0.2em] text-brand-gold">Holistic model</p>
-            <h2 className="mt-2 font-serif text-3xl font-bold text-white">{holisticPlatformModel.title}</h2>
-            <p className="mt-4 text-base leading-relaxed text-white/85">{holisticPlatformModel.intro}</p>
+            <h2 className="mt-2 font-serif text-3xl font-bold text-white capitalize">{holisticPlatformModel.title}</h2>
             <ul className="mt-8 space-y-4">
               {holisticPlatformModel.connections.map((item) => (
                 <li key={item} className="flex gap-3 text-sm leading-relaxed text-white/85 sm:text-base">
@@ -102,7 +116,10 @@ export default function PlatformPage() {
                 </li>
               ))}
             </ul>
-            <p className="mt-8 text-sm leading-relaxed text-white/75 sm:text-base">{holisticPlatformModel.closing}</p>
+            <p className="mt-8 text-base font-semibold leading-relaxed text-white sm:text-lg">
+              {holisticPlatformModel.closing}
+            </p>
+            <p className="mt-4 text-sm leading-relaxed text-white/75 sm:text-base">{holisticPlatformModel.finalPoint}</p>
             <div className="mt-8 flex flex-wrap gap-3">
               <Button href="/district-7" variant="primary">
                 District 7 data
