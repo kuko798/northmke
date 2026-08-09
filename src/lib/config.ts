@@ -42,13 +42,11 @@ export const logo = {
   height: 446,
 } as const;
 
-/**
- * Home hero photography — North Sherman Blvd & West North Avenue, Milwaukee.
- */
+/** Home hero background — `public/images/image.png`. */
 export const heroPhoto = {
-  src: "/images/hero-north-sherman.jpg",
-  alt: "Milwaukee street signs at North Sherman Boulevard and West North Avenue",
-  caption: "North Sherman Boulevard & West North Avenue, Milwaukee",
+  src: "/images/image.png",
+  alt: "North Milwaukee community",
+  caption: "North Milwaukee",
 } as const;
 
 export const brand = {

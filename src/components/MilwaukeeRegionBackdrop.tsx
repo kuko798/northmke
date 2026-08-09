@@ -12,7 +12,7 @@ export function MilwaukeeRegionBackdrop({ priority = false }: { priority?: boole
           fill
           priority={priority}
           sizes="100vw"
-          className="object-cover object-[32%_48%] sm:object-[36%_50%]"
+          className="object-cover object-center"
         />
       </div>
       <div
