@@ -1,119 +1,149 @@
 import Link from "next/link";
 import type { ReactNode } from "react";
 
-type PlatformTocProps = {
-  items: readonly { id: string; label: string }[];
-};
+const body = "text-[15px] leading-7 text-brand-black/85";
+const h2 = "font-serif text-2xl font-bold tracking-tight text-brand-navy sm:text-[1.75rem]";
+const h3 = "font-serif text-lg font-bold text-brand-navy sm:text-xl";
+const h4 = "text-sm font-semibold uppercase tracking-[0.12em] text-brand-navy/70";
+const rule = "border-b border-brand-navy/12 pb-4";
 
-export function PlatformToc({ items }: PlatformTocProps) {
+export function PlatformJumpNav({ items }: { items: readonly { id: string; label: string }[] }) {
   return (
-    <nav
-      aria-label="Platform sections"
-      className="rounded-lg border border-brand-navy/10 bg-white p-5 shadow-sm lg:sticky lg:top-28"
-    >
-      <p className="text-xs font-semibold uppercase tracking-[0.18em] text-brand-black/50">On this page</p>
-      <ol className="mt-3 space-y-2 text-sm">
+    <nav aria-label="Platform sections" className="border-b border-brand-navy/10 bg-surface/60">
+      <div className="mx-auto flex max-w-3xl flex-wrap gap-x-4 gap-y-2 px-4 py-4 sm:px-6 lg:px-8">
         {items.map((item) => (
-          <li key={item.id}>
-            <Link
-              href={`#${item.id}`}
-              className="text-brand-navy/80 transition-colors hover:text-brand-gold"
-            >
-              {item.label}
-            </Link>
-          </li>
+          <Link
+            key={item.id}
+            href={`#${item.id}`}
+            className="text-xs font-medium text-brand-navy/65 transition-colors hover:text-brand-navy"
+          >
+            {item.label}
+          </Link>
         ))}
-      </ol>
+      </div>
     </nav>
   );
 }
 
-type PlatformSectionProps = {
+export function PlatformPart({
+  id,
+  title,
+  subtitle,
+  children,
+}: {
   id: string;
   title: string;
   subtitle?: string;
   children: ReactNode;
-  variant?: "default" | "muted";
-};
-
-export function PlatformSection({ id, title, subtitle, children, variant = "default" }: PlatformSectionProps) {
+}) {
   return (
-    <section
-      id={id}
-      className={`scroll-mt-28 border-t border-brand-navy/10 py-12 sm:py-14 ${
-        variant === "muted" ? "bg-surface" : "bg-white"
-      }`}
-    >
-      <header className="mb-8 max-w-3xl">
-        <h2 className="font-serif text-2xl font-bold text-brand-navy sm:text-3xl">{title}</h2>
-        {subtitle ? <p className="mt-2 text-base font-medium text-brand-black/65">{subtitle}</p> : null}
+    <section id={id} className="scroll-mt-24 py-14 sm:py-16">
+      <header className={`mb-8 ${rule}`}>
+        <h2 className={h2}>{title}</h2>
+        {subtitle ? <p className={`mt-2 ${body} text-brand-black/70`}>{subtitle}</p> : null}
       </header>
-      <div className="max-w-3xl space-y-8">{children}</div>
+      <div className="space-y-8">{children}</div>
     </section>
   );
 }
 
-type PlatformBlockProps = {
-  title?: string;
-  intro?: string;
-  body?: readonly string[];
-  items?: readonly string[];
-  ordered?: boolean;
-};
-
-export function PlatformBlock({ title, intro, body, items, ordered = false }: PlatformBlockProps) {
-  const ListTag = ordered ? "ol" : "ul";
-  const listClass = ordered
-    ? "mt-3 list-decimal space-y-2 pl-5 text-base leading-relaxed text-brand-black/85"
-    : "mt-3 space-y-2 text-base leading-relaxed text-brand-black/85";
+export function PlatformPillar({
+  index,
+  id,
+  title,
+  tagline,
+  children,
+}: {
+  index: number;
+  id: string;
+  title: string;
+  tagline?: string;
+  children: ReactNode;
+}) {
+  const num = String(index + 1).padStart(2, "0");
 
   return (
-    <article>
-      {title ? <h3 className="font-serif text-xl font-bold text-brand-navy">{title}</h3> : null}
-      {intro ? <p className={`text-base leading-relaxed text-brand-black/85 ${title ? "mt-3" : ""}`}>{intro}</p> : null}
-      {body?.map((p) => (
-        <p key={p.slice(0, 40)} className="mt-3 text-base leading-relaxed text-brand-black/85">
-          {p}
+    <article id={id} className="scroll-mt-24 border-t border-brand-navy/10 pt-10 first:border-t-0 first:pt-0">
+      <div className="flex gap-5">
+        <p className="w-8 shrink-0 pt-0.5 text-sm font-semibold tabular-nums text-brand-gold" aria-hidden="true">
+          {num}
         </p>
-      ))}
-      {items?.length ? (
-        <ListTag className={listClass}>
-          {items.map((item) => (
-            <li key={item}>{item}</li>
-          ))}
-        </ListTag>
-      ) : null}
+        <div className="min-w-0 flex-1">
+          <h3 className={h3}>{title}</h3>
+          {tagline ? <p className="mt-1.5 text-sm font-medium text-brand-black/60">{tagline}</p> : null}
+          <div className="mt-5 space-y-5">{children}</div>
+        </div>
+      </div>
     </article>
   );
 }
 
-export function PlatformVision({ text }: { text: string }) {
+export function PlatformSubsection({
+  title,
+  intro,
+  body,
+  items,
+}: {
+  title?: string;
+  intro?: string;
+  body?: string;
+  items?: readonly string[];
+}) {
+  if (!title && !intro && !body && !items?.length) return null;
+
   return (
-    <div className="mt-6 border-l-4 border-brand-gold bg-brand-navy/5 px-5 py-4">
-      <p className="text-xs font-semibold uppercase tracking-[0.16em] text-brand-navy/60">Vision</p>
-      <p className="mt-2 text-base leading-relaxed text-brand-navy">{text}</p>
+    <div>
+      {title ? <h4 className={h4}>{title}</h4> : null}
+      {intro ? <p className={`${title ? "mt-2" : ""} ${body}`}>{intro}</p> : null}
+      {body ? <p className={`${title || intro ? "mt-2" : ""} ${body}`}>{body}</p> : null}
+      {items?.length ? (
+        <ul className={`${title || intro || body ? "mt-3" : ""} list-disc space-y-1.5 pl-5 ${body}`}>
+          {items.map((item) => (
+            <li key={item}>{item}</li>
+          ))}
+        </ul>
+      ) : null}
     </div>
   );
 }
 
-export function PlatformCallout({ title, text }: { title: string; text: string }) {
+export function PlatformVision({ label = "Vision", text }: { label?: string; text: string }) {
   return (
-    <div className="rounded-lg border border-brand-navy/10 bg-surface px-5 py-4">
-      <p className="font-serif text-lg font-bold text-brand-navy">{title}</p>
-      <p className="mt-2 text-base leading-relaxed text-brand-black/85">{text}</p>
+    <div className="border-l-2 border-brand-gold pl-4">
+      <p className="text-xs font-semibold uppercase tracking-[0.14em] text-brand-navy/55">{label}</p>
+      <p className={`mt-1.5 ${body}`}>{text}</p>
     </div>
   );
 }
 
-export function PlatformChain({ items }: { items: readonly string[] }) {
+export function PlatformLead({ children }: { children: ReactNode }) {
+  return <p className={`${body} text-base sm:text-[17px]`}>{children}</p>;
+}
+
+export function PlatformArgument({
+  number,
+  title,
+  children,
+}: {
+  number: number;
+  title: string;
+  children: ReactNode;
+}) {
   return (
-    <p className="mt-3 text-base leading-relaxed text-brand-black/85">
-      {items.map((item, i) => (
-        <span key={item}>
-          {i > 0 ? <span className="text-brand-gold"> → </span> : null}
-          {item}
-        </span>
-      ))}
-    </p>
+    <article className="border-t border-brand-navy/10 pt-8 first:border-t-0 first:pt-0">
+      <h3 className={h3}>
+        <span className="mr-2 text-brand-gold">{number}.</span>
+        {title}
+      </h3>
+      <div className="mt-4 space-y-4">{children}</div>
+    </article>
   );
+}
+
+export function PlatformClosing({ text }: { text: string }) {
+  return <p className={`border-l-2 border-brand-navy/20 pl-4 ${body} font-medium text-brand-navy`}>{text}</p>;
+}
+
+export function PlatformRoiLine({ text }: { text: string }) {
+  return <p className={`${body} text-brand-black/75`}>{text}</p>;
 }

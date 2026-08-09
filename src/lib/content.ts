@@ -45,13 +45,12 @@ export type PillarDetailContent = {
 };
 
 export const platformToc = [
-  { id: "mission", label: "Platform identity and mission" },
-  { id: "strategic-pillars", label: "Strategic pillars" },
-  { id: "digital-features", label: "Digital platform features" },
-  { id: "long-term-vision", label: "Long-term vision statement" },
-  { id: "strategic-arguments", label: "Strategic arguments" },
+  { id: "mission", label: "Mission" },
+  { id: "strategic-pillars", label: "Pillars" },
+  { id: "strategic-arguments", label: "Strategic case" },
   { id: "holistic-model", label: "Holistic model" },
-  { id: "final-strategic-point", label: "Final strategic point" },
+  { id: "digital-features", label: "Digital tools" },
+  { id: "long-term-vision", label: "Vision" },
 ] as const;
 
 export const pillars: readonly Pillar[] = [
@@ -262,7 +261,7 @@ export const pillarDetails: readonly PillarDetailContent[] = [
   {
     id: "womens-economic-mobility",
     title: "Women's Economic Mobility & Leadership Initiative",
-    tagline: "Why This Investment Matters",
+    tagline: "Evidence-based investment in women's education and economic advancement.",
     vision: womensEconomicMobility.vision,
     blocks: [
       {
