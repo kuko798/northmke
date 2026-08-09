@@ -43,17 +43,12 @@ export const logo = {
 } as const;
 
 /**
- * Home hero photography — Unsplash License (free use, including commercial).
- * Milwaukee skyline and Lake Michigan (metro / region).
+ * Home hero photography — North Sherman Blvd & West North Avenue, Milwaukee.
  */
 export const heroPhoto = {
-  src: "/images/hero-milwaukee.jpg",
-  alt: "Sunrise over the Milwaukee skyline and Lake Michigan",
-  photographer: "Tom Barrett",
-  photographerUrl: "https://unsplash.com/@wistomsin",
-  photoPageUrl: "https://unsplash.com/photos/milwaukees-skyline-is-visible-with-the-lake-WvMjogIRHK4",
-  licenseName: "Unsplash License",
-  licenseUrl: "https://unsplash.com/license",
+  src: "/images/hero-north-sherman.jpg",
+  alt: "Milwaukee street signs at North Sherman Boulevard and West North Avenue",
+  caption: "North Sherman Boulevard & West North Avenue, Milwaukee",
 } as const;
 
 export const brand = {
