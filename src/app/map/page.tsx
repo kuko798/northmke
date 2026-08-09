@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import { PageHero } from "@/components/PageHero";
 import { Reveal } from "@/components/Reveal";
+import { MapToolsNav } from "@/components/MapToolsNav";
 import { VotingMap } from "@/components/VotingMap";
 
 export const metadata: Metadata = {
@@ -20,6 +21,14 @@ export default function MapPage() {
       />
 
       <Reveal>
+        <section className="border-b border-brand-navy/10 bg-white py-4">
+          <div className="mx-auto max-w-6xl px-4 sm:px-6 lg:px-8">
+            <MapToolsNav active="map" />
+          </div>
+        </section>
+      </Reveal>
+
+      <Reveal delayMs={40}>
         <section className="bg-white py-12 sm:py-16">
           <div className="mx-auto max-w-6xl px-4 sm:px-6 lg:px-8">
             <VotingMap showDistricts />

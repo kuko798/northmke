@@ -175,13 +175,18 @@ export default function HomePage() {
                 <p className="text-xs font-semibold uppercase tracking-[0.2em] text-brand-gold">Voting map</p>
                 <h2 className="mt-2 font-serif text-3xl font-bold text-brand-navy">Find your polling place</h2>
                 <p className="mt-2 max-w-2xl text-sm text-brand-black/75">
-                  Interactive satellite map with colored overlays for MKE districts 1, 2, 5, 7, 9, and 10 — numbered
-                  labels on each district — plus pins at every polling place. Tap a pin for location details.
+                  Interactive satellite map with colored overlays for MKE districts 1, 2, 5, 7, 9, and 10 — or enter
+                  your address to find your polling place without leaving the site.
                 </p>
               </div>
-              <Button href="/map" variant="ghost" className="self-start sm:self-auto">
-                Open full map
-              </Button>
+              <div className="flex flex-wrap gap-2 self-start sm:self-auto">
+                <Button href="/map/lookup" variant="primary">
+                  Where to vote
+                </Button>
+                <Button href="/map" variant="ghost">
+                  Open full map
+                </Button>
+              </div>
             </div>
             <div className="mt-10">
               <VotingMap showDistricts heightClassName="h-[420px] sm:h-[480px]" />
