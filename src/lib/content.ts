@@ -1,6 +1,12 @@
 /**
  * NorthMKE platform content — mission, vision, strategic pillars, digital features.
+ * Source of truth for /platform copy.
  */
+
+export const platformIdentity = {
+  name: "NorthMKE",
+  tagline: "Building Wealth, Health, Safety, and Opportunity Across North Milwaukee.",
+} as const;
 
 export const mission = {
   summary:
@@ -46,7 +52,7 @@ export const pillars: readonly Pillar[] = [
     title: "Housing & Neighborhood Investment",
     tagline: "Building wealth through stable neighborhoods.",
     description:
-      "Invest in homeownership expansion, vacant property rehabilitation, affordable workforce housing, neighborhood beautification, property tax base growth, and community land trust exploration.",
+      "Homeownership expansion, vacant property rehabilitation, affordable workforce housing, neighborhood beautification, property tax base growth, and community land trust exploration.",
     priorities: [
       "Homeownership expansion",
       "Rehabilitation of vacant properties",
@@ -63,9 +69,9 @@ export const pillars: readonly Pillar[] = [
     id: "womens-economic-mobility",
     emoji: "👩🏾‍🎓",
     title: "Women's Economic Mobility & Leadership Initiative",
-    tagline: "Evidence-based investment in women's education and economic advancement.",
+    tagline: "Evidence-based economic development through women's advancement.",
     description:
-      "Research consistently shows that investments in women's education and economic advancement generate substantial long-term returns for families, communities, and local economies.",
+      "Investments in women's education and economic advancement generate substantial long-term returns for families, communities, and local economies.",
     featured: true,
   },
   {
@@ -74,7 +80,7 @@ export const pillars: readonly Pillar[] = [
     title: "Public Return on Investment (ROI)",
     tagline: "Accountability through results.",
     description:
-      "NorthMKE promotes transparent measurement of public and private investments through a community dashboard tracking housing outcomes, crime reduction, business growth, healthcare access, job creation, environmental improvements, and educational attainment.",
+      "Transparent measurement of public and private investments through a community dashboard tracking housing, safety, business growth, healthcare, jobs, environment, and education.",
     vision: "Every dollar invested in North Milwaukee should produce measurable community benefit.",
     featured: true,
   },
@@ -84,9 +90,8 @@ export const pillars: readonly Pillar[] = [
     title: "Green North Milwaukee",
     tagline: "Sustainable infrastructure and green jobs.",
     description:
-      "Create environmentally responsible projects while generating employment opportunities for local residents through urban forestry, community solar, green alleys, rainwater management, energy-efficient housing upgrades, community gardens, and vacant lot transformation.",
-    vision:
-      "Develop a pipeline of North Milwaukee residents trained for careers in sustainable infrastructure and environmental services.",
+      "Environmentally responsible projects that generate employment for local residents — urban forestry, community solar, green alleys, rainwater management, and more.",
+    featured: true,
   },
   {
     id: "safety",
@@ -94,9 +99,7 @@ export const pillars: readonly Pillar[] = [
     title: "Community Safety & Neighborhood Protection",
     tagline: "Safe Communities Initiative.",
     description:
-      "Public safety requires both effective law enforcement and strong community investment through enhanced neighborhood policing, strategic review of police service boundaries, violence prevention programs, youth mentorship, mental health crisis response, and community safety councils.",
-    vision:
-      "Safer neighborhoods achieved through prevention, accountability, and community partnership.",
+      "Public safety requires both effective law enforcement and strong community investment — neighborhood policing, violence prevention, youth mentorship, and community safety councils.",
   },
   {
     id: "health",
@@ -104,9 +107,7 @@ export const pillars: readonly Pillar[] = [
     title: "Midtown Health & Wellness District",
     tagline: "A world-class health destination for North Milwaukee.",
     description:
-      "Transform Midtown into a comprehensive health, nursing, and wellness hub serving families across the region — with focus areas in maternal health, children's health, senior care, and a Nursing Excellence Center for education, workforce training, and research partnerships.",
-    vision:
-      "Establish North Milwaukee as a national model for community-based healthcare delivery.",
+      "Transform Midtown into a comprehensive health, nursing, and wellness hub — maternal health, children's health, senior care, and a Nursing Excellence Center.",
   },
   {
     id: "elder-nutrition",
@@ -114,19 +115,15 @@ export const pillars: readonly Pillar[] = [
     title: "Elder Nutrition & Independence Program",
     tagline: "No Elder Left Behind.",
     description:
-      "Support seniors with reliable access to food and wellness resources through grocery delivery, prescription assistance, wellness visits, transportation support, and nutrition counseling in partnership with faith organizations, grocery retailers, healthcare providers, and volunteer networks.",
-    vision:
-      "Ensure every senior in North Milwaukee has access to healthy food and supportive services.",
+      "Reliable food and wellness access for seniors through grocery delivery, prescription assistance, wellness visits, transportation, and nutrition counseling.",
   },
   {
     id: "mpd-district-reform",
     emoji: "🛡️",
     title: "Smarter, Safer & More Accountable Public Safety Infrastructure",
-    tagline: "Right-sized policing for North Milwaukee neighborhoods.",
+    tagline: "Split the 6th and 7th MPD districts for community-responsive policing.",
     description:
-      "Create a dedicated MPD district aligned with the 7th Aldermanic District to improve community policing, officer career mobility, response times, and public trust through data-driven realignment — not reactive fragmentation.",
-    vision:
-      "Rebuild trust, enhance safety, and invest in both the people who live here and the officers who serve them.",
+      "Create a dedicated MPD district aligned with the 7th Aldermanic District to improve community policing, officer career mobility, response times, and public trust.",
   },
 ] as const;
 
@@ -134,6 +131,7 @@ export const womensEconomicMobility = {
   whyItMatters: {
     intro:
       "Research consistently shows that investments in women's education and economic advancement generate substantial long-term returns for families, communities, and local economies.",
+    likelihoodIntro: "College-educated women are more likely to:",
     benefits: [
       "Participate in the workforce at higher rates.",
       "Start and grow businesses.",
@@ -179,26 +177,59 @@ export const womensEconomicMobility = {
     "NorthMKE seeks to make North Milwaukee the Midwest's leading hub for women's economic mobility, entrepreneurship, professional leadership, and generational wealth creation.",
 } as const;
 
-export const digitalFeatures = [
+export type DigitalFeature = {
+  title: string;
+  intro: string;
+  items: readonly string[];
+};
+
+export const digitalFeatures: readonly DigitalFeature[] = [
   {
     title: "Community Action Hub",
-    description:
-      "Residents can volunteer, donate, join initiatives, attend events, and advocate for policy solutions.",
+    intro: "Residents can:",
+    items: [
+      "Volunteer",
+      "Donate",
+      "Join initiatives",
+      "Attend events",
+      "Advocate for policy solutions",
+    ],
   },
   {
     title: "NorthMKE Impact Dashboard",
-    description:
-      "Track progress in real time: homes renovated, businesses launched, jobs created, trees planted, healthcare services delivered, seniors served, and public investment returns.",
+    intro: "Track progress in real time:",
+    items: [
+      "Homes renovated",
+      "Businesses launched",
+      "Jobs created",
+      "Trees planted",
+      "Healthcare services delivered",
+      "Seniors served",
+      "Public investment returns",
+    ],
   },
   {
     title: "Community Issue Reporting",
-    description:
-      "Report blight, illegal dumping, infrastructure concerns, public safety issues, and vacant properties.",
+    intro: "Report:",
+    items: [
+      "Blight",
+      "Illegal dumping",
+      "Infrastructure concerns",
+      "Public safety issues",
+      "Vacant properties",
+    ],
   },
   {
     title: "NorthMKE Voices",
-    description:
-      "A storytelling platform featuring residents, entrepreneurs, students, seniors, healthcare workers, and community leaders.",
+    intro: "A storytelling platform featuring:",
+    items: [
+      "Residents",
+      "Entrepreneurs",
+      "Students",
+      "Seniors",
+      "Healthcare workers",
+      "Community leaders",
+    ],
   },
 ] as const;
 
@@ -223,34 +254,26 @@ export const pillarDetails: readonly PillarDetailContent[] = [
           "Community land trust exploration",
         ],
       },
-      {
-        title: "Foundational citizens & homeownership",
-        intro: "Anchor the neighborhood backbone — educators, nurses, first responders, and city workers.",
-        items: [
-          "Down-payment assistance and mortgage support for public-sector workers",
-          "Vacancy-to-ownership tax credits",
-          "First Look programs for public employees on city-owned properties",
-          "De-incentivize absentee and out-of-state corporate landlords",
-        ],
-      },
-      {
-        title: "Why it matters in District 7",
-        body:
-          "With significant renter populations and rising assessments, housing policy must address both ownership pathways and renter stability. Prioritizing owner-occupied buyers strengthens the tax base and reduces wealth extraction by corporate holding companies.",
-      },
     ],
   },
   {
     id: "womens-economic-mobility",
     emoji: "👩🏾‍🎓",
     title: "Women's Economic Mobility & Leadership Initiative",
-    tagline: "Evidence-based investment in women's education and economic advancement.",
+    tagline: "Evidence-based economic development through women's advancement.",
     vision: womensEconomicMobility.vision,
     blocks: [
       {
         title: "Why this investment matters",
         intro: womensEconomicMobility.whyItMatters.intro,
+      },
+      {
+        title: womensEconomicMobility.whyItMatters.likelihoodIntro,
         items: womensEconomicMobility.whyItMatters.benefits,
+      },
+      {
+        title: "North Milwaukee impact",
+        body: womensEconomicMobility.whyItMatters.closing,
       },
       {
         title: womensEconomicMobility.opportunityFund.title,
@@ -262,12 +285,13 @@ export const pillarDetails: readonly PillarDetailContent[] = [
         items: womensEconomicMobility.strategicGoals,
       },
       {
-        title: "Key community indicators",
-        items: womensEconomicMobility.keyIndicators,
-      },
-      {
         title: "ROI framework",
         body: womensEconomicMobility.roiFramework,
+      },
+      {
+        title: "Key community indicators",
+        intro: "Track:",
+        items: womensEconomicMobility.keyIndicators,
       },
     ],
   },
@@ -280,7 +304,7 @@ export const pillarDetails: readonly PillarDetailContent[] = [
     blocks: [
       {
         title: "Community dashboard",
-        intro: "NorthMKE promotes transparent measurement of public and private investments.",
+        intro: "NorthMKE promotes transparent measurement of public and private investments. Tracks:",
         items: [
           "Housing outcomes",
           "Crime reduction",
@@ -293,8 +317,7 @@ export const pillarDetails: readonly PillarDetailContent[] = [
       },
       {
         title: "Guiding principle",
-        body:
-          "Return on tax dollars must be visible and local. Residents deserve clear reporting on how public investments translate into neighborhood outcomes they can see and hold leaders accountable for.",
+        body: "Every dollar invested in North Milwaukee should produce measurable community benefit.",
       },
     ],
   },
@@ -303,8 +326,6 @@ export const pillarDetails: readonly PillarDetailContent[] = [
     emoji: "🌱",
     title: "Green North Milwaukee",
     tagline: "Sustainable infrastructure and green jobs.",
-    vision:
-      "Develop a pipeline of North Milwaukee residents trained for careers in sustainable infrastructure and environmental services.",
     blocks: [
       {
         title: "Projects",
@@ -321,12 +342,7 @@ export const pillarDetails: readonly PillarDetailContent[] = [
       {
         title: "Workforce goal",
         body:
-          "Green infrastructure is not abstract climate policy — it is local jobs, cleaner neighborhoods, lower utility costs, and stormwater resilience in Milwaukee's older housing stock.",
-      },
-      {
-        title: "District 7 as a green testbed",
-        body:
-          "Underutilized land, community institutions willing to partner, and a concentrated voter base position the 7th District to lead Milwaukee's share of federal and state green investment dollars.",
+          "Develop a pipeline of North Milwaukee residents trained for careers in sustainable infrastructure and environmental services.",
       },
     ],
   },
@@ -352,7 +368,7 @@ export const pillarDetails: readonly PillarDetailContent[] = [
       {
         title: "Community goal",
         body:
-          "Public safety requires both effective law enforcement and strong community investment. Safety outcomes improve when prevention, accountability, and resident partnership work together.",
+          "Safer neighborhoods achieved through prevention, accountability, and community partnership.",
       },
     ],
   },
@@ -409,40 +425,55 @@ export const pillarDetails: readonly PillarDetailContent[] = [
           "Volunteer networks",
         ],
       },
+      {
+        title: "Impact goal",
+        body:
+          "Ensure every senior in North Milwaukee has access to healthy food and supportive services.",
+      },
     ],
   },
   {
     id: "mpd-district-reform",
     emoji: "🛡️",
     title: "Smarter, Safer & More Accountable Public Safety Infrastructure",
-    tagline: "Split the 6th and 7th MPD districts for community-responsive policing.",
+    tagline: "Split the 6th and 7th MPD districts to improve community policing, officer advancement, and public trust.",
     vision:
       "Rebuild trust, enhance safety, and invest in both the people who live here and the officers who serve them.",
     blocks: [
       {
         title: "The problem",
         body:
-          "The current 6th and 7th MPD district configuration does not reflect population density, residential makeup, or modern public safety needs. Shared patrol resources create overextension, delayed response times, and fragmented community engagement.",
+          "The current configuration of Milwaukee's 6th and 7th Police Districts does not reflect the realities of population density, residential makeup, or modern public safety needs. The 7th District includes large residential corridors with significant homeownership and family density — a drastically different policing landscape from the more industrial and transitional zones nearby. The shared burden across 6th and 7th creates an overextension of patrol resources, delayed response times, and fragmented community engagement. Officers are overworked, under-supported, and face limited opportunities for career advancement in command positions due to administrative bottlenecks within merged or overly large precinct zones.",
       },
       {
-        title: "The solution",
+        title: "The strategic solution",
         body:
-          "Create a new, independent MPD district dedicated to the 7th Aldermanic District — a data-driven realignment based on housing stability, population density, and officer retention, not a reactive or punitive move.",
+          "Create a new, independent MPD District dedicated exclusively to the 7th Aldermanic District. This would be a data-driven realignment based on population density, housing stability, and officer retention strategies — not a reactive or punitive move.",
       },
       {
         title: "Why it matters",
         items: [
-          "Neighborhood-specific policing with deeper resident relationships",
-          "Vertical career mobility for officers through new command positions",
-          "Improved officer and public safety via right-sized coverage",
-          "Tighter integration with housing, education, and reentry programs",
-          "Better metrics: response times, retention, youth intervention, resident satisfaction",
+          "Neighborhood-specific policing: officers who know the neighborhoods they serve, with customized patrol routes and deeper resident relationships",
+          "Vertical career mobility for officers through new command positions — especially for Black and Brown officers underrepresented in MPD leadership",
+          "Improved officer and public safety via right-sized coverage, better training rotations, adequate backup, and more timely response times",
+          "Tighter integration with housing, education, school safety, violence interruption, and reentry programs",
+          "Better data and decisions: response times, officer wellness and retention, youth intervention rates, and resident satisfaction surveys",
         ],
       },
       {
-        title: "Platform integration",
+        title: "How this fits into the broader platform",
+        items: [
+          "Housing stability: safer neighborhoods increase property values and retention of foundational citizens like teachers and nurses",
+          "Women's economic mobility: trusted police presence allows professionals and entrepreneurs to work, invest, and raise families",
+          "Green infrastructure: a localized force makes it easier to secure and protect public works and green investments",
+          "Education reform: schools thrive in safe zones; dedicated community officers can partner with local educators",
+          "Voter power: empowered residents can hold a localized police district more accountable, increasing civic trust and turnout",
+        ],
+      },
+      {
+        title: "Conclusion",
         body:
-          "This reform connects directly to housing stability, women's economic mobility, green infrastructure protection, school safety partnerships, and voter accountability — it is not an isolated policing proposal.",
+          "The 7th District is not just growing — it is evolving. To match that evolution, we must modernize our public safety infrastructure to be right-sized, locally responsive, equitable in leadership opportunities, and integrated with housing, education, and sustainability policy. By splitting the 6th and 7th MPD Districts, we're not just adding buildings — we're rebuilding trust, enhancing safety, and investing in both the people who live here and the officers who serve them.",
       },
     ],
   },
@@ -599,14 +630,14 @@ export const holisticPlatformModel = {
   title: "How the pillars interlock",
   intro: "NorthMKE's platform is designed as a self-reinforcing model for inclusive growth:",
   connections: [
-    "College-educated women supported through ownership, child care, and entrepreneurship",
-    "Foundational workers incentivized to live where they serve, stabilizing neighborhoods",
-    "Education reform raises property values and strengthens the long-term tax base",
-    "Green infrastructure creates jobs, improves health, and positions the district as a climate leader",
-    "MPD realignment integrates safety with housing, schools, and community trust",
+    "College-educated women are supported and rooted through ownership, child care, and entrepreneurship.",
+    "Foundational workers are incentivized to live where they work and stabilize their neighborhoods.",
+    "Education reform raises property values and strengthens the long-term tax base.",
+    "Green infrastructure projects create jobs, improve health, and position the district as a climate leader.",
+    "MPD realignment integrates safety with housing, schools, and community trust.",
   ],
   closing:
-    "The 7th District has the numbers, the land, and the people. What it needs is policy that invests in the residents who have always invested in the community.",
+    "The 7th District has the numbers. It has the land. It has the people. What it needs is the policy. By making this district the flagship for inclusive growth, we don't just transform one part of Milwaukee — we show the whole state what's possible when you invest in the people who've always invested in you.",
 } as const;
 
 /** Pillars shown as home-page teasers. */
