@@ -71,13 +71,13 @@ export default function PlatformPage() {
                     <PlatformSubsection
                       key={`dup-${block.title}`}
                       intro={block.intro}
-                      body={block.body}
+                      text={block.body}
                       items={block.items}
                     />
                   );
                 }
                 if (!block.title && block.body) {
-                  return <PlatformSubsection key={block.body.slice(0, 48)} body={block.body} />;
+                  return <PlatformSubsection key={block.body.slice(0, 48)} text={block.body} />;
                 }
                 if (block.title === "ROI Framework") {
                   return (
@@ -92,7 +92,7 @@ export default function PlatformPage() {
                     key={block.title}
                     title={block.title || undefined}
                     intro={block.intro}
-                    body={block.body}
+                    text={block.body}
                     items={block.items}
                   />
                 );
@@ -114,7 +114,7 @@ export default function PlatformPage() {
           {strategicArguments.arguments.map((arg) => (
             <PlatformArgument key={arg.number} number={arg.number} title={arg.title}>
               {arg.paragraphs.map((p) => (
-                <p key={p.slice(0, 48)} className="text-[15px] leading-7 text-brand-black/85">
+                <p key={p.slice(0, 48)} className="text-[15px] leading-7 text-brand-black">
                   {p}
                 </p>
               ))}
