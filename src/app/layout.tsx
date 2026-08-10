@@ -2,7 +2,7 @@ import type { Metadata } from "next";
 import { Plus_Jakarta_Sans, Source_Serif_4 } from "next/font/google";
 import { Footer } from "@/components/Footer";
 import { Navbar } from "@/components/Navbar";
-import { brand, siteUrl } from "@/lib/config";
+import { activePhase, brand, siteUrl } from "@/lib/config";
 import "./globals.css";
 
 const plusJakarta = Plus_Jakarta_Sans({
@@ -17,8 +17,8 @@ const sourceSerif = Source_Serif_4({
   weight: ["600", "700"],
 });
 
-const title = "NORTHMKE™ | Nathan Coe for North Milwaukee";
-const description = "Official campaign website for Nathan Coe and NORTHMKE™.";
+const title = `${brand.nameWithTm} | ${brand.tagline}`;
+const description = activePhase.siteDescription;
 
 export const metadata: Metadata = {
   metadataBase: new URL(siteUrl),

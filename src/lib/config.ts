@@ -1,35 +1,58 @@
 /**
- * Central campaign configuration — domains, contact, donations, socials.
+ * Central platform configuration — domains, contact, donations, socials, campaign phase.
  * Set NEXT_PUBLIC_DONATION_URL to your ActBlue, Anedot, Stripe Checkout, or PayPal link when ready.
+ * Set NEXT_PUBLIC_CAMPAIGN_PHASE to control awareness vs. campaign features.
  */
 export const siteUrl = "https://northmke.com";
 
-/** Official campaign logo — transparent PNG (`public/images/campaign-logo.png`). */
+export type CampaignPhase = "awareness" | "persuasion" | "campaign";
+
+export const campaignPhase: CampaignPhase =
+  (typeof process !== "undefined" &&
+    (process.env.NEXT_PUBLIC_CAMPAIGN_PHASE as CampaignPhase | undefined)) ||
+  "awareness";
+
+export const phaseConfig = {
+  awareness: {
+    showDonate: true,
+    disclaimer: null as string | null,
+    siteDescription:
+      "Community development and civic engagement platform for North Milwaukee.",
+  },
+  persuasion: {
+    showDonate: true,
+    disclaimer: "Paid for by NorthMKE.",
+    siteDescription:
+      "Community development and civic engagement platform for North Milwaukee.",
+  },
+  campaign: {
+    showDonate: true,
+    disclaimer: "Paid for by NorthMKE.",
+    siteDescription:
+      "Community development and civic engagement platform for North Milwaukee.",
+  },
+} as const;
+
+export const activePhase = phaseConfig[campaignPhase];
+
+/** Official platform logo — transparent PNG (`public/images/campaign-logo.png`). */
 export const logo = {
   src: "/images/campaign-logo.png",
   width: 560,
   height: 446,
 } as const;
 
-/**
- * Home hero photography — Unsplash License (free use, including commercial).
- * Milwaukee skyline and Lake Michigan (metro / region).
- */
+/** Home hero background — `public/images/image.png`. */
 export const heroPhoto = {
-  src: "/images/hero-milwaukee.jpg",
-  alt: "Sunrise over the Milwaukee skyline and Lake Michigan",
-  photographer: "Tom Barrett",
-  photographerUrl: "https://unsplash.com/@wistomsin",
-  photoPageUrl: "https://unsplash.com/photos/milwaukees-skyline-is-visible-with-the-lake-WvMjogIRHK4",
-  licenseName: "Unsplash License",
-  licenseUrl: "https://unsplash.com/license",
+  src: "/images/image.png",
+  alt: "North Milwaukee community",
+  caption: "North Milwaukee",
 } as const;
 
 export const brand = {
-  name: "NORTHMKE",
-  nameWithTm: "NORTHMKE™",
-  tagline: "Nathan Coe for North Milwaukee",
-  candidate: "Nathan Coe",
+  name: "NorthMKE",
+  nameWithTm: "NorthMKE™",
+  tagline: "Building Wealth, Health, Safety, and Opportunity Across North Milwaukee.",
   domain: "northmke.com",
   colors: {
     navy: "#0a1f3c",
@@ -40,7 +63,7 @@ export const brand = {
   },
 } as const;
 
-export const disclaimer = "Paid for by NorthMKE.";
+export const disclaimer = activePhase.disclaimer;
 
 export const emails = {
   info: "info@northmke.com",
@@ -58,6 +81,24 @@ export const donationPresets = [10, 25, 50, 100, 250] as const;
 export const donationCheckoutUrl =
   typeof process !== "undefined" && process.env.NEXT_PUBLIC_DONATION_URL
     ? process.env.NEXT_PUBLIC_DONATION_URL
+    : "";
+
+/** External merch storefront (Shopify, Printful, etc.). When set, product CTAs open this URL. */
+export const shopCheckoutUrl =
+  typeof process !== "undefined" && process.env.NEXT_PUBLIC_SHOP_URL
+    ? process.env.NEXT_PUBLIC_SHOP_URL
+    : "";
+
+/** Google Maps JavaScript API key for the voting map. */
+export const googleMapsApiKey =
+  typeof process !== "undefined" && process.env.NEXT_PUBLIC_GOOGLE_MAPS_API_KEY
+    ? process.env.NEXT_PUBLIC_GOOGLE_MAPS_API_KEY
+    : "";
+
+/** Optional Cloud-based map style ID for Advanced Markers. */
+export const googleMapsMapId =
+  typeof process !== "undefined" && process.env.NEXT_PUBLIC_GOOGLE_MAPS_MAP_ID
+    ? process.env.NEXT_PUBLIC_GOOGLE_MAPS_MAP_ID
     : "";
 
 /** Append ?amount= for processors that accept it; falls back to base URL. */
@@ -82,11 +123,20 @@ export const socials = [
   { label: "Threads", handle: "@NORTHMKE", href: "https://www.threads.net/@NORTHMKE" },
 ] as const;
 
-export const navigation = [
+const baseNavigation = [
   { href: "/", label: "Home" },
-  { href: "/about", label: "Meet Nathan" },
-  { href: "/issues", label: "Issues" },
+  { href: "/about", label: "About" },
+  { href: "/platform", label: "Platform" },
+  { href: "/district-7", label: "District 7" },
+  { href: "/map", label: "Map" },
+  { href: "/shop", label: "Shop" },
   { href: "/volunteer", label: "Volunteer" },
-  { href: "/donate", label: "Donate" },
   { href: "/contact", label: "Contact" },
 ] as const;
+
+/** Navigation items filtered by current campaign phase. Donate is a separate button in the navbar. */
+export function getNavigation() {
+  return [...baseNavigation];
+}
+
+export const navigation = getNavigation();

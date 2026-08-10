@@ -4,11 +4,12 @@ import Link from "next/link";
 import { useEffect, useState } from "react";
 import { CampaignLogo } from "@/components/CampaignLogo";
 import { Button } from "@/components/Button";
-import { navigation } from "@/lib/config";
+import { activePhase, getNavigation } from "@/lib/config";
 
 export function Navbar() {
   const [open, setOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
+  const navigation = getNavigation();
 
   useEffect(() => {
     const onScroll = () => setScrolled(window.scrollY > 6);
@@ -44,15 +45,19 @@ export function Navbar() {
               />
             </Link>
           ))}
-          <Button href="/donate" variant="primary" className="ml-1 py-2.5 text-xs uppercase">
-            Donate
-          </Button>
+          {activePhase.showDonate ? (
+            <Button href="/donate" variant="primary" className="ml-1 py-2.5 text-xs uppercase">
+              Donate
+            </Button>
+          ) : null}
         </nav>
 
         <div className="flex items-center gap-2 md:hidden">
-          <Button href="/donate" variant="primary" className="px-3 py-2.5 text-xs uppercase">
-            Donate
-          </Button>
+          {activePhase.showDonate ? (
+            <Button href="/donate" variant="primary" className="px-3 py-2.5 text-xs uppercase">
+              Donate
+            </Button>
+          ) : null}
           <button
             type="button"
             className="inline-flex min-h-11 min-w-11 items-center justify-center rounded-full border border-white/25 bg-white/5 text-white backdrop-blur-sm transition-colors hover:bg-white/15 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-brand-gold"

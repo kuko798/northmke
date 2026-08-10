@@ -13,7 +13,7 @@ export default function ContactPage() {
     <div>
       <PageHero
         eyebrow="Contact"
-        title="Reach the campaign"
+        title="Contact NorthMKE"
         description="Send us a message or use the emails below for the fastest route to the right team member."
       />
 
@@ -21,7 +21,7 @@ export default function ContactPage() {
         <div className="mx-auto max-w-6xl px-4 sm:px-6 lg:px-8">
           <div className="grid gap-10 lg:grid-cols-5">
             <aside className="lg:col-span-2">
-              <h2 className="font-serif text-xl font-bold text-brand-navy">Campaign emails</h2>
+              <h2 className="font-serif text-xl font-bold text-brand-navy">Contact emails</h2>
               <ul className="mt-4 space-y-4 text-sm">
                 <li>
                   <p className="text-xs font-semibold uppercase tracking-wide text-brand-gold">General</p>

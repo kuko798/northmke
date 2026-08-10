@@ -1,6 +1,6 @@
 import Link from "next/link";
 import { CampaignLogo } from "@/components/CampaignLogo";
-import { brand, disclaimer, emails, socials } from "@/lib/config";
+import { brand, disclaimer, emails, getNavigation, socials } from "@/lib/config";
 
 /** Keeps handle text aligned when some entries omit a leading @ (YouTube, LinkedIn). */
 function SocialHandle({ handle }: { handle: string }) {
@@ -21,6 +21,7 @@ export function Footer() {
   const year = new Date().getFullYear();
   const mid = Math.ceil(socials.length / 2);
   const socialCols = [socials.slice(0, mid), socials.slice(mid)] as const;
+  const navigation = getNavigation();
 
   return (
     <footer className="bg-brand-navy-dark text-white">
@@ -33,7 +34,9 @@ export function Footer() {
           <div>
             <CampaignLogo variant="footer" />
             <p className="mt-4 max-w-xs text-sm leading-relaxed text-white/75">{brand.tagline}</p>
-            <p className="mt-5 text-xs font-medium uppercase tracking-wide text-brand-gold">{disclaimer}</p>
+            {disclaimer ? (
+              <p className="mt-5 text-xs font-medium uppercase tracking-wide text-brand-gold">{disclaimer}</p>
+            ) : null}
             <p className="mt-2 text-xs text-white/55">© {year} {brand.nameWithTm}</p>
           </div>
 
@@ -95,24 +98,11 @@ export function Footer() {
         </div>
 
         <div className="mt-12 flex flex-wrap gap-x-5 gap-y-2 border-t border-white/10 pt-8 text-xs text-white/55">
-          <Link href="/" className="rounded-md transition-colors hover:text-white">
-            Home
-          </Link>
-          <Link href="/about" className="rounded-md transition-colors hover:text-white">
-            Meet Nathan
-          </Link>
-          <Link href="/issues" className="rounded-md transition-colors hover:text-white">
-            Issues
-          </Link>
-          <Link href="/volunteer" className="rounded-md transition-colors hover:text-white">
-            Volunteer
-          </Link>
-          <Link href="/donate" className="rounded-md transition-colors hover:text-white">
-            Donate
-          </Link>
-          <Link href="/contact" className="rounded-md transition-colors hover:text-white">
-            Contact
-          </Link>
+          {navigation.map((item) => (
+            <Link key={item.href} href={item.href} className="rounded-md transition-colors hover:text-white">
+              {item.label}
+            </Link>
+          ))}
         </div>
       </div>
     </footer>
